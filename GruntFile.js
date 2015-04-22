@@ -34,4 +34,6 @@ module.exports = function(grunt){
   };
 
   grunt.initConfig(options);
+
+  grunt.registerTask('default', []);
 }
