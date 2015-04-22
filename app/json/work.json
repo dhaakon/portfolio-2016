@@ -1,0 +1,23 @@
+{
+    "work":[
+        {
+            "title":"Mad Libs",
+            "poster":"images/mad_libs.jpg",
+            "description":"",
+            "technologies":[]
+        },
+        {
+            "title":"Coke Zero",
+            "poster":"images/coke_zero.jpg",
+            "description":"",
+            "technologies":[]
+        },
+        {
+            "title":"IBM Web Animations",
+            "poster":"images/ibm_animations.jpg",
+            "description":"",
+            "technologies":[]
+        }
+
+    ]
+}
