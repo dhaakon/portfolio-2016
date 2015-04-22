@@ -1,9 +1,10 @@
 include ./includes/header.jade
 
 body
-  #wrapper
-    #content
-        include ./sites/main.jade
-
-  script(src="js/main.js")
+    include ./includes/nav.jade
+    #wrapper
+        section#content
+            include ./sites/main.jade
+        include ./includes/footer.jade
+    script(src="js/main.js")
 
