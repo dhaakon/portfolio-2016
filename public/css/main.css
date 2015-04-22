@@ -1,2 +1,5 @@
 body {
-  background: grey; }
+  background: black; }
+
+#main h1 {
+  color: white; }
