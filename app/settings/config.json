@@ -1,9 +1,19 @@
 {
+  "directories":{
+    "appDir":"/app",
+    "dataDir":"/data",
+    "publicDir":"/public",
+    "privateDir":"/private"
+  },
   "app":{
-    "dev":{
-      "src":"app/src",
-      "root":"app",
-      "port":3000
-    }
+    "name":"dhaakon",
+    "rootPage":"index.js",
+    "dev":"_gen_dev",
+    "src":"app",
+    "root":"app",
+    "srcPort":5000,
+    "devPort":5000,
+    "distPort":5000,
+    "livereloadPort":1337
   }
 }
