@@ -1,5 +1,42 @@
+@import 'media-queries';
+
 body{
   background: black;
 }
 
+
+html, body{
+  height:100%;
+  -moz-box-sizing:
+  border-box; box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+
+select {
+    -webkit-appearance: listbox;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;
+}
+
+:-ms-input-placeholder {
+   text-align: center;
+}
+
+
+@import 'nav';
 @import 'sections';
+@import 'footer';
