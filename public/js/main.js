@@ -2,7 +2,7 @@
 var app = {};
 
 window.onload = function(){
-  console.log('Welcome Bitch!');
+  console.log('Welcome BITCH!');
 };
 
 },{}]},{},[1]);

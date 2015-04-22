@@ -9,11 +9,9 @@ module.exports = function(grunt){
         src: {
             options: {
                 file: 'app/index.js',
-                args: ['development'],
-                nodeArgs: ['--debug'],
                 ignoredFiles: ['*.md', 'node_modules/**'],
-                watchedExtensions: ['js', 'jade', 'css', 'scss'],
-                watchedFolders: ['<%= app_config.app.src %>', '<%= app_config.app.src %>/sass/**','<%= app_config.app.src %>/routes/**', '<%= app_config.app.src %>/views/**'],
+                //watchedExtensions: ['js', 'jade'],
+                //watchedFolders: ['<%= app_config.app.src %>/routes/**', '<%= app_config.app.src %>/views/**'],
                 delayTime: 1,
                 env: {
                     PORT: '<%= app_config.app.srcPort %>'
@@ -74,7 +72,7 @@ module.exports = function(grunt){
             //tasks: ['jshint:gruntfile', 'jshint:app' ]
         //},
         app: {
-            files: 'app/src/**/*.js',
+            files: 'app/js/src/**/*.js',
             tasks: ['browserify:dist'],
             options: {
                 livereload: '<%= app_config.app.livereloadPort %>'
@@ -99,7 +97,6 @@ module.exports = function(grunt){
 
   };
 
-  console.log(options.app_config);
   grunt.initConfig(options);
 
   // Start local server and watch for changes in files.
@@ -112,5 +109,5 @@ module.exports = function(grunt){
 
   
   grunt.registerTask( 'dev', ['concurrent:dev'])
-  grunt.registerTask('default', ['src']);
+  grunt.registerTask('default', ['']);
 }
