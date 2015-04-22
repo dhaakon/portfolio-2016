@@ -1,5 +1,9 @@
-var route = function( req, res ){
-  res.render('index', {});
-};
+var index = function( userObject ){
+    var route = function( req, res ){
+      res.render('index', userObject );
+    };
 
-module.exports = route;
+    return route;
+}
+
+module.exports = index;
