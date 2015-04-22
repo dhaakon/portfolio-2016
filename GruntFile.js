@@ -1,21 +1,22 @@
 module.exports = function(grunt){
   require('matchdep').filterDev('*').forEach(grunt.loadNpmTasks);
   
+  var sassPaths =  [require('node-bourbon').includePaths].concat( require('node-neat').includePaths );
+  var path = require('path');
   var options = {
-    app_config: grunt.file.readJSON('./app/settings/config.json'),
-    watch:{},
+    app_config: grunt.file.readJSON( path.join( __dirname, '/app/settings/config.json' )),
     nodemon:{
         src: {
             options: {
-                file: '<%= appConfig.app.src %>/<%= appConfig.app.rootPage %>',
+                file: 'app/index.js',
                 args: ['development'],
                 nodeArgs: ['--debug'],
                 ignoredFiles: ['*.md', 'node_modules/**'],
                 watchedExtensions: ['js', 'jade', 'css', 'scss'],
-                watchedFolders: ['<%= appConfig.app.src %>', '<%= appConfig.app.src %>/sass/**','<%= appConfig.app.src %>/routes/**', '<%= appConfig.app.src %>/views/**'],
+                watchedFolders: ['<%= app_config.app.src %>', '<%= app_config.app.src %>/sass/**','<%= app_config.app.src %>/routes/**', '<%= app_config.app.src %>/views/**'],
                 delayTime: 1,
                 env: {
-                    PORT: '<%= appConfig.app.srcPort %>'
+                    PORT: '<%= app_config.app.srcPort %>'
                 },
                 cwd: __dirname
             }
@@ -29,11 +30,87 @@ module.exports = function(grunt){
         }
       }
     },
-    sass:{},
-    concurrent:{}
+    sass:{
+      dist:{
+        options:{
+          includePaths: sassPaths
+        },
+        files:{
+          'public/css/main.css': [ 
+            'app/sass/main.scss'
+          ]
+          //'app/public/css/font-awesome.css':[
+            //'app/sass/font-awesome/font-awesome.scss'
+          //]
+        },
+      },
+    },
+    // Open a web server with a given URL.
+
+    open: {
+        server: {
+            path: 'http://localhost:<%= app_config.app.devPort %>'
+        }
+    },
+
+    server: {
+        port: '<%= app_config.app.devPort %>',
+        base: './'
+    },
+
+    concurrent:{
+        dev:{
+          tasks: ['nodemon', 'watch'],
+          options: {
+            logConcurrentOutput: true
+          }
+        }
+    },
+
+    watch: {
+        //every time a file is changed, a task is performed
+        //gruntfile: {
+            //files: ['<%= jshint.app.src %>', '<%= jshint.gruntfile.src %>'],
+            //tasks: ['jshint:gruntfile', 'jshint:app' ]
+        //},
+        app: {
+            files: 'app/src/**/*.js',
+            tasks: ['browserify:dist'],
+            options: {
+                livereload: '<%= app_config.app.livereloadPort %>'
+            }
+        },
+        sass: {
+            files: 'app/sass/**/*.scss',
+            tasks: ['sass:dist'],
+            options: {
+              spawn: true,
+              livereload: '<%= app_config.app.livereloadPort %>'
+            }
+        },
+        //jade: {
+            //files: '<%= app_config.app.src %>/**/*.jade',
+            //tasks: 'compile:jade',
+            //options: {
+                //livereload: '<%= app_config.app.livereloadPort %>'
+            //}
+        //}
+    }
+
   };
 
+  console.log(options.app_config);
   grunt.initConfig(options);
 
-  grunt.registerTask('default', []);
+  // Start local server and watch for changes in files.
+  grunt.registerTask('src', [
+      //'jshint',
+      'sass',
+      'browserify',
+      'nodemon:src'
+  ]);
+
+  
+  grunt.registerTask( 'dev', ['concurrent:dev'])
+  grunt.registerTask('default', ['src']);
 }
