@@ -1,6 +1,8 @@
 module.exports = function(grunt){
-
+  require('matchdep').filterDev('*').forEach(grunt.loadNpmTasks);
+  
   var options = {
+    app_config: grunt.file.readJSON('./app/settings/config.json'),
     watch:{},
     nodemon:{
         src: {
@@ -20,7 +22,13 @@ module.exports = function(grunt){
         }
     },
     express:{},
-    browserify:{},
+    browserify:{
+      dist:{
+        files:{
+          'public/js/main.js':'app/js/src/main.js'
+        }
+      }
+    },
     sass:{},
     concurrent:{}
   };

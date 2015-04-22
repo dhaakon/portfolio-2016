@@ -1,0 +1,9 @@
+{
+  "app":{
+    "dev":{
+      "src":"app/src",
+      "root":"app",
+      "port":3000
+    }
+  }
+}
