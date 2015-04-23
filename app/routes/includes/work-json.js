@@ -1,9 +1,16 @@
 var path = require('path');
+var fs = require('fs');
+
 
 var workJson = function(userObject){
-    var json = require( path.join( __dirname, '../../json/work.json'));
+    var _jsonPath = path.join(__dirname, '../../json/work.json');
+    var json = require( _jsonPath );
+
+    console.log(_jsonPath);
+    console.log(json);
+    //var json = require( path.join( __dirname, '../../json/work.json'));
     var route = function(req, res){
-        res.send(json)
+        res.json(json)
     }
     return route;
 }
