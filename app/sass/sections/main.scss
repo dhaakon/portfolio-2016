@@ -14,17 +14,21 @@
         top:0px; left:0px;
         z-index: 1;
         background: grey;
-        opacity:0.2;
+        opacity:0;
+
     }
-    
+
     #header{
         position:absolute;
-        top:50%;
+        top:45%;
         left:50%;
         z-index: 2;
+        opacity:0;
+        @include transition( 600ms all $subtleEase );
         @include transform(translate(-50%, -50%));
 
         h1{
+            margin:0;
             @include vertical-align;
             font-size: 6.6rem;
             color:white;

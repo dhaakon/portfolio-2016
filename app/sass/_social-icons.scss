@@ -1,0 +1,42 @@
+.social{
+    font-family:'FontAwesome';
+    border: 1.5px solid grey;
+    background: black;
+    color: white;
+    cursor: pointer;
+}
+
+.social:hover{
+    border: 1.5px solid black;
+    background: white;
+    color: black;
+}
+
+.githubBtn,
+.facebookBtn,
+.twitterBtn{
+    border-radius:21px;
+    width:42px;
+    height:42px;
+    font-size:20px;
+    margin-left:12px;
+};
+
+.githubBtn{margin-left:0px;}
+
+
+.githubBtn:before{
+    content: "\f09b"
+};
+.facebookBtn:before{
+    content: "\f09a";
+};
+.twitterBtn:before{
+    content: "\f099";
+};
+
+.facebookBtn:before,
+.twitterBtn:before,
+.githubBtn:before{
+    font-family:"FontAwesome";
+}
