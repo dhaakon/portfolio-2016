@@ -2,8 +2,10 @@ var Project = require('./project');
 
 var Portfolio = function( data ){
     this.data = data;
+    this.htmlElement = document.createElement('div')
     this.init();
 };
+
 
 var proto = Portfolio.prototype = {
     projects : []
@@ -12,6 +14,10 @@ var proto = Portfolio.prototype = {
 proto.init = function(){
     this.createProjects();
     console.log(this.projects);
+    for( var i; i < this.projects.length; ++i ){
+        var _p = this.projects[i];
+        _p.intro();
+    }
 };
 
 proto.createProjects = function(){

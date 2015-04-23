@@ -14,4 +14,8 @@ proto.createDescription = function(){};
 proto.intro = function(){};
 proto.outro = function(){};
 
+proto.addListeners = function(){
+
+};
+
 module.exports = Project;
