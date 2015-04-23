@@ -1,8 +1,9 @@
 var Portfolio = require('./portfolio');
 
 var App = function(){
-    this.path = '/work-json/';
+    this.path = '/json/work/';
     this.banner = document.getElementById('header');
+    this.socialIcons = document.querySelectorAll('.social-buttons')[0];
 
     this.animateBanner();
 
