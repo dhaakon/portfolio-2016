@@ -8,4 +8,4 @@ grunt dev
 ```
 
 Navigate to:
-[http://localhost:5000/ Portfolio]
+[localhost:5000/](http://localhost:5000/)
