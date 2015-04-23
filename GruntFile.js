@@ -1,6 +1,6 @@
 module.exports = function(grunt){
   require('matchdep').filterDev('*').forEach(grunt.loadNpmTasks);
-  
+
   var sassPaths =  [require('node-bourbon').includePaths].concat( require('node-neat').includePaths );
   var path = require('path');
   var options = {
@@ -34,12 +34,12 @@ module.exports = function(grunt){
           includePaths: sassPaths
         },
         files:{
-          'public/css/main.css': [ 
+          'public/css/main.css': [
             'app/sass/main.scss'
+          ],
+          'public/css/font-awesome.css':[
+            'app/sass/font-awesome/font-awesome.scss'
           ]
-          //'app/public/css/font-awesome.css':[
-            //'app/sass/font-awesome/font-awesome.scss'
-          //]
         },
       },
     },
@@ -107,7 +107,7 @@ module.exports = function(grunt){
       'nodemon:src'
   ]);
 
-  
+
   grunt.registerTask( 'dev', ['concurrent:dev'])
   grunt.registerTask('default', ['']);
 }
