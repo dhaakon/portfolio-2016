@@ -2,11 +2,24 @@ var Portfolio = require('./portfolio');
 
 var App = function(){
     this.path = '/work-json/';
+    this.banner = document.getElementById('header');
+
+    this.animateBanner();
 
     this.init();
-}
+};
 
 var proto = App.prototype = {};
+
+proto.animateBanner = function(){
+    setTimeout(
+        function(){
+            this.banner.style.opacity = 1;
+            this.banner.style.top = '50%';
+        }.bind(this),
+        500
+    );
+}
 
 proto.init = function(){
     this.createPortfolio();
