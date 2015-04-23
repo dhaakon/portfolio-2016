@@ -5,13 +5,13 @@ var routes = function(app){
     index : require('./includes/index')(userObject),
     art : require('./includes/art')(userObject),
     compositions: require('./includes/compositions')(userObject),
-    workJson: require('./includes/work-json')(userObject)
+    json:require('./includes/json')(userObject)
   };
 
   app.get('/', store.index );
   app.get('/art', store.art );
-  app.get('/work-json', store.workJson );
   app.get('/compositions', store.compositions );
+  app.get('/json/:type', store.json );
 }
 
 module.exports = routes;
