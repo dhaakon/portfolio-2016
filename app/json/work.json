@@ -3,20 +3,20 @@
         {
             "title":"Mad Libs",
             "poster":"images/mad_libs.jpg",
-            "description":"",
-            "technologies":[]
+            "description":"Mad Libs beeded a reboot",
+            "technologies":["ios","titanium appcelerator","titanium alloy","coffeescript","python"]
         },
         {
             "title":"Coke Zero",
             "poster":"images/coke_zero.jpg",
             "description":"",
-            "technologies":[]
+            "technologies":["node","sass","jade","express"]
         },
         {
             "title":"IBM Web Animations",
             "poster":"images/ibm_animations.jpg",
             "description":"",
-            "technologies":[]
+            "technologies":["javascript","html5","svg"]
         }
 
     ]
