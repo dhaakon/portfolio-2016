@@ -7,7 +7,6 @@ var http = require('http'),
 
 var noop = function(){};
 
-
 var config = require( './settings/config.json' );
 var fs = require( 'fs' );
 
@@ -24,5 +23,5 @@ require( './routes/index' )( app );
 //
 var server = http.createServer( app );
 server.listen( port, app.get('ip'), function(){
-  console.log( 'Server started on port: ' + port );           
+  console.log( 'Server started on port: ' + port );
 } );
