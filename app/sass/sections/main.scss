@@ -1,5 +1,36 @@
 #main{
-    h1{
-        color:white;
+    height:100%;
+    width:100%;
+
+    text-align:center;
+
+    position:absolute;
+    top:0px;
+    left:0px;
+
+    canvas{
+        position:absolute;
+        width:100%; height:100%;
+        top:0px; left:0px;
+        z-index: 1;
+        background: grey;
+        opacity:0.2;
+    }
+    
+    #header{
+        position:absolute;
+        top:50%;
+        left:50%;
+        z-index: 2;
+        @include transform(translate(-50%, -50%));
+
+        h1{
+            @include vertical-align;
+            font-size: 6.6rem;
+            color:white;
+            @include main-font();
+            text-transform: uppercase;
+            display:block;
+        }
     }
 }

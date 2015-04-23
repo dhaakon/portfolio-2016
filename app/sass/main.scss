@@ -1,4 +1,6 @@
+@import 'globals';
 @import 'media-queries';
+@import 'bourbon';
 
 body{
   background: black;
@@ -36,6 +38,22 @@ select {
    text-align: center;
 }
 
+#wrapper{
+    height:100%;
+    
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+}
+
+#content{
+    height:100%;
+    width:100%;
+    position:absolute;
+    top:0px;
+    left:0px;
+}
 
 @import 'nav';
 @import 'sections';
