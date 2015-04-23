@@ -12,7 +12,9 @@
     color: black;
 }
 
+
 .githubBtn,
+.instagramBtn,
 .facebookBtn,
 .twitterBtn{
     border-radius:21px;
@@ -24,6 +26,9 @@
 
 .githubBtn{margin-left:0px;}
 
+.instagramBtn:before{
+    content: "\f16d";
+}
 .githubBtn:before{
     content: "\f09b"
 };
@@ -34,6 +39,7 @@
     content: "\f099";
 };
 
+.instagramBtn:before,
 .facebookBtn:before,
 .twitterBtn:before,
 .githubBtn:before{

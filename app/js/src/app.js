@@ -42,7 +42,8 @@ proto.setupListeners = function(){
     window.onresize = this.onWindowResize.bind(this);
     this.enterButton.onclick = function(){
         this.banner.style.opacity = 0;
-        this.visualization.domElement.style.opacity = 1;
+
+        this.visualization.start();
 
         this.enterButton.onclick = null;
     }.bind(this);

@@ -8,6 +8,8 @@ var Visualization = function(){
     this.material = null;
     this.mesh = null;
 
+    this.animationFrame = null;
+
     this.domElement = document.getElementById('sketch');
 
     this.init();
@@ -16,9 +18,16 @@ var Visualization = function(){
 var proto = Visualization.prototype = {};
 
 proto.init = function(){
+    //this.setupScene();
+    //this.animate();
+};
+
+proto.start = function(){
+    this.domElement.style.opacity = 1;
+    
     this.setupScene();
     this.animate();
-};
+}
 
 proto.setupScene = function(){
     this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
@@ -36,11 +45,16 @@ proto.setupScene = function(){
     this.renderer.setPixelRatio( window.devicePixelRatio );
     this.renderer.setSize( window.innerWidth, window.innerHeight );
 
+    //this.controls = new THREE.FirstPersonControls( this.camera );
+
+    //this.controls.movementSpeed = 500;
+    //this.controls.lookSpeed = 0.1
+
     this.domElement.appendChild( this.renderer.domElement );
 };
 
 proto.animate = function(){
-    requestAnimationFrame( this.animate.bind(this) );
+    this.animationFrame = requestAnimationFrame( this.animate.bind(this) );
 
     this.mesh.rotation.x += 0.01;
     this.mesh.rotation.y += 0.02;
