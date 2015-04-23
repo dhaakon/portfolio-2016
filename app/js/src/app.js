@@ -1,9 +1,11 @@
 var Portfolio = require('./portfolio');
+var Visualization = require('./visualization');
 
 var App = function(){
     this.path = '/json/work/';
     this.banner = document.getElementById('header');
     this.socialIcons = document.querySelectorAll('.social-buttons')[0];
+    this.enterButton = document.querySelectorAll('.enterBtn')[0];
 
     this.animateBanner();
 
@@ -16,7 +18,7 @@ proto.animateBanner = function(){
     setTimeout(
         function(){
             this.banner.style.opacity = 1;
-            this.banner.style.top = '50%';
+            this.banner.style.top = '48%';
         }.bind(this),
         500
     );
@@ -24,7 +26,13 @@ proto.animateBanner = function(){
 
 proto.init = function(){
     this.createPortfolio();
+    this.createVisualization();
+
     this.setupListeners();
+};
+
+proto.createVisualization = function(){
+    this.visualization = new Visualization();
 };
 
 proto.onWindowResize = function(event){
@@ -32,6 +40,12 @@ proto.onWindowResize = function(event){
 
 proto.setupListeners = function(){
     window.onresize = this.onWindowResize.bind(this);
+    this.enterButton.onclick = function(){
+        this.banner.style.opacity = 0;
+        this.visualization.domElement.style.opacity = 1;
+
+        this.enterButton.onclick = null;
+    }.bind(this);
 };
 
 proto.onDataReceived = function( data ){
