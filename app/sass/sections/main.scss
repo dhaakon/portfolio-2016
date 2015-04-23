@@ -36,5 +36,10 @@
             text-transform: uppercase;
             display:block;
         }
+
+        p{
+            color:white;
+            @include main-font();
+        }
     }
 }
