@@ -65,6 +65,14 @@ module.exports = function(grunt){
         }
     },
 
+    uglify:{
+        dist:{
+            files:{
+                'public/js/main.min.js':['public/js/main.js']
+            }
+        }
+    },
+
     watch: {
         //every time a file is changed, a task is performed
         //gruntfile: {
@@ -73,7 +81,7 @@ module.exports = function(grunt){
         //},
         app: {
             files: 'app/js/src/**/*.js',
-            tasks: ['browserify:dist'],
+            tasks: ['browserify:dist', 'uglify:dist'],
             options: {
                 livereload: '<%= app_config.app.livereloadPort %>'
             }
