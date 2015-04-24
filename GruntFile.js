@@ -108,6 +108,6 @@ module.exports = function(grunt){
   ]);
 
 
-  grunt.registerTask( 'dev', ['concurrent:dev'])
+  grunt.registerTask( 'dev', ['sass', 'browserify', 'concurrent:dev'])
   grunt.registerTask('default', ['']);
 }
