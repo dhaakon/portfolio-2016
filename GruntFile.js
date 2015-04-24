@@ -24,7 +24,7 @@ module.exports = function(grunt){
     browserify:{
       dist:{
         files:{
-          'public/js/main.js':'app/js/src/main.js'
+          'app/js/dist/main.js':'app/js/src/main.js'
         }
       }
     },
@@ -68,7 +68,7 @@ module.exports = function(grunt){
     uglify:{
         dist:{
             files:{
-                'public/js/main.min.js':['public/js/main.js']
+                'public/js/main.min.js':['app/js/dist/main.js']
             }
         }
     },
@@ -116,6 +116,6 @@ module.exports = function(grunt){
   ]);
 
 
-  grunt.registerTask( 'dev', ['sass', 'browserify', 'concurrent:dev'])
+  grunt.registerTask( 'dev', ['sass', 'browserify', 'uglify','concurrent:dev'])
   grunt.registerTask('default', ['']);
 }
