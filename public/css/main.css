@@ -1,17 +1,17 @@
 /*$subtleEase: cubic-bezier( 1.0, 0.7, 0.7, 1.0 );*/
 .social {
   font-family: 'FontAwesome';
-  border: 1.5px solid grey;
-  background: black;
-  color: white;
+  border: 1.5px solid black;
+  background: none;
+  color: black;
   cursor: pointer; }
 
 .social:hover {
   border: 1.5px solid black;
-  background: white;
-  color: black; }
+  background: black;
+  color: white; }
 
-.githubBtn, .facebookBtn, .twitterBtn {
+.githubBtn, .instagramBtn, .facebookBtn, .twitterBtn {
   border-radius: 21px;
   width: 42px;
   height: 42px;
@@ -20,6 +20,9 @@
 
 .githubBtn {
   margin-left: 0px; }
+
+.instagramBtn:before {
+  content: "\f16d"; }
 
 .githubBtn:before {
   content: "\f09b"; }
@@ -30,11 +33,11 @@
 .twitterBtn:before {
   content: "\f099"; }
 
-.facebookBtn:before, .twitterBtn:before, .githubBtn:before {
+.instagramBtn:before, .facebookBtn:before, .twitterBtn:before, .githubBtn:before {
   font-family: "FontAwesome"; }
 
 body {
-  background: black; }
+  background-size: cover; }
 
 html, body {
   height: 100%;
@@ -83,21 +86,54 @@ select {
   position: absolute;
   top: 0px;
   left: 0px; }
-  #main canvas {
+  #main #line {
+    margin: 28px auto 0 auto;
+    width: 80%;
+    height: 2px;
+    background: white; }
+  #main .static-bg {
+    width: 100%; }
+    #main .static-bg img {
+      width: 100%; }
+  #main .enterBtn {
+    margin: 24px auto;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+    color: black;
+    width: 128px;
+    height: 48px;
+    border: 1px solid black;
+    display: block;
+    background: none;
+    cursor: pointer; }
+  #main .enterBtn:hover {
+    background: black;
+    color: white;
+    border: 1px solid black; }
+  #main #sketch {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0px;
     left: 0px;
     z-index: 1;
-    background: grey;
-    opacity: 0; }
+    opacity: 0;
+    -webkit-transition: 400ms opacity;
+    -moz-transition: 400ms opacity;
+    transition: 400ms opacity;
+    -webkit-transition-delay: 500ms;
+    -moz-transition-delay: 500ms;
+    transition-delay: 500ms; }
   #main #header {
     position: absolute;
-    top: 45%;
+    top: 30%;
     left: 50%;
     z-index: 2;
     opacity: 0;
+    margin: 0;
     -webkit-transition: 600ms all ease-in-out;
     -moz-transition: 600ms all ease-in-out;
     transition: 600ms all ease-in-out;
@@ -113,10 +149,21 @@ select {
       -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
       transform: translateY(-50%);
-      font-size: 6.6rem;
-      color: white;
+      font-size: 10.6rem;
+      color: black;
       font-family: 'Raleway', sans-serif;
       font-weight: 800;
       text-transform: uppercase;
-      display: block; }
+      display: inline-block;
+      height: 0px;
+      margin: 0; }
+    #main #header p {
+      color: black;
+      display: inline-block;
+      height: 0px;
+      margin: 32px 0;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800; }
+  #main .social-buttons {
+    margin-top: 10px; }
 
