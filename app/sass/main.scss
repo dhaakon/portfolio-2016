@@ -4,7 +4,9 @@
 @import 'social-icons';
 
 body{
-  background: black;
+  background: url('../images/skyline_hidef.jpg');
+  background-size:cover;
+
 }
 
 
@@ -41,7 +43,7 @@ select {
 
 #wrapper{
     height:100%;
-    
+
     position:absolute;
     top:0px;
     left:0px;

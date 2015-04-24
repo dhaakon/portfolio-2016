@@ -19,7 +19,7 @@ proto.animateBanner = function(){
     setTimeout(
         function(){
             this.banner.style.opacity = 1;
-            this.banner.style.top = '48%';
+            this.banner.style.top = '40%';
         }.bind(this),
         500
     );
