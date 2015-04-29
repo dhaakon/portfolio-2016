@@ -37,7 +37,8 @@
   font-family: "FontAwesome"; }
 
 body {
-  background-size: cover; }
+  background-size: cover;
+  background: black; }
 
 html, body {
   height: 100%;
@@ -96,7 +97,7 @@ select {
     #main .static-bg img {
       width: 100%; }
   #main .enterBtn {
-    margin: 24px auto;
+    margin: 50px auto;
     font-family: 'Raleway', sans-serif;
     font-weight: 800;
     font-size: 16px;
@@ -105,14 +106,26 @@ select {
     color: black;
     width: 128px;
     height: 48px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
+    /*border:0px;*/
+    opacity: 0;
+    -webkit-transition: 500ms opacity;
+    -moz-transition: 500ms opacity;
+    transition: 500ms opacity;
+    -webkit-transition-delay: 800ms;
+    -moz-transition-delay: 800ms;
+    transition-delay: 800ms;
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    border-left: 1px solid rgba(0, 0, 0, 0.4);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: block;
-    background: none;
-    cursor: pointer; }
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.2); }
   #main .enterBtn:hover {
-    background: black;
-    color: white;
-    border: 1px solid black; }
+    background: url('../images/clouds.jpg');
+    color: rgba(255, 255, 255, 0.4); }
   #main #sketch {
     position: absolute;
     width: 100%;
@@ -127,9 +140,12 @@ select {
     -webkit-transition-delay: 500ms;
     -moz-transition-delay: 500ms;
     transition-delay: 500ms; }
+  #main #logo {
+    -webkit-mask: url(../svg/logo.svg);
+    -webkit-mask-repeat: no-repeat; }
   #main #header {
     position: absolute;
-    top: 30%;
+    top: 32%;
     left: 50%;
     z-index: 2;
     opacity: 0;
@@ -137,11 +153,11 @@ select {
     -webkit-transition: 600ms all ease-in-out;
     -moz-transition: 600ms all ease-in-out;
     transition: 600ms all ease-in-out;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%); }
+    -webkit-transform: translate(-50%, -40%);
+    -moz-transform: translate(-50%, -40%);
+    -ms-transform: translate(-50%, -40%);
+    -o-transform: translate(-50%, -40%);
+    transform: translate(-50%, -40%); }
     #main #header h1 {
       margin: 0;
       position: relative;

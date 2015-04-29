@@ -4,6 +4,7 @@ var Visualization = require('./visualization');
 var App = function(){
     this.path = '/json/work/';
     this.banner = document.getElementById('header');
+
     this.socialIcons = document.querySelectorAll('.social-buttons')[0];
     this.enterButton = document.querySelectorAll('.enterBtn')[0];
 
@@ -19,6 +20,9 @@ proto.animateBanner = function(){
         function(){
             this.banner.style.opacity = 1;
             this.banner.style.top = '40%';
+
+            this.enterButton.style.opacity = 1;
+
         }.bind(this),
         500
     );

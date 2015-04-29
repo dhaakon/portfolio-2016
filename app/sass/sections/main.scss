@@ -1,3 +1,6 @@
+$lightb:rgba(0,0,0,0.4);
+$lightw:rgba(255,255,255,0.1);
+
 #main{
     height:100%;
     width:100%;
@@ -20,7 +23,7 @@
     }
 
     .enterBtn{
-        margin: 24px auto;
+        margin: 50px auto;
 
         @include main-font();
         font-size: 16px;
@@ -31,17 +34,28 @@
         width: 128px;
         height: 48px;
 
-        border: 1px solid black;
+        /*border: 1px solid black;*/
+        /*border:0px;*/
+        opacity:0;
+        @include transition( 500ms opacity );
+        @include transition-delay(800ms);
+
+        border-top: 1px solid $lightb;
+        border-left: 1px solid $lightb;
+        border-right: 1px solid $lightw;
+        border-bottom: 1px solid $lightw;
+
 
         display: block;
-        background: none;
         cursor: pointer;
+        background: rgba( 255, 255, 255, 0.2 );
+
+        box-shadow:inset 0px 0px 20px rgba(0,0,0,0.2);
     }
 
     .enterBtn:hover{
-        background:black;
-        color:white;
-        border: 1px solid black;
+        background:url('../images/clouds.jpg');
+        color:rgba( 255,255,255, 0.4)
     }
 
     #sketch{
@@ -55,9 +69,15 @@
         @include transition-delay(500ms);
     }
 
+    // SVG logo
+    #logo{
+        -webkit-mask: url(../svg/logo.svg);
+        -webkit-mask-repeat: no-repeat;
+    }
+
     #header{
         position:absolute;
-        top:30%;
+        top:32%;
         left:50%;
 
         z-index: 2;
@@ -65,7 +85,7 @@
         margin:0;
 
         @include transition( 600ms all $subtleEase );
-        @include transform(translate(-50%, -50%));
+        @include transform(translate(-50%, -40%));
 
         h1{
             margin:0;
