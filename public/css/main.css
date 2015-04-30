@@ -97,7 +97,7 @@ select {
     #main .static-bg img {
       width: 100%; }
   #main .enterBtn {
-    margin: 50px auto;
+    margin: 12% auto;
     font-family: 'Raleway', sans-serif;
     font-weight: 800;
     font-size: 16px;
@@ -119,12 +119,14 @@ select {
     border-left: 1px solid rgba(0, 0, 0, 0.4);
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
     display: block;
     cursor: pointer;
     background: rgba(255, 255, 255, 0.2);
     box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.2); }
   #main .enterBtn:hover {
     background: url('../images/clouds.jpg');
+    box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.5);
     color: rgba(255, 255, 255, 0.4); }
   #main #sketch {
     position: absolute;

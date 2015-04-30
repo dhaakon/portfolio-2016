@@ -23,7 +23,7 @@ $lightw:rgba(255,255,255,0.1);
     }
 
     .enterBtn{
-        margin: 50px auto;
+        margin: 12% auto;
 
         @include main-font();
         font-size: 16px;
@@ -37,6 +37,7 @@ $lightw:rgba(255,255,255,0.1);
         /*border: 1px solid black;*/
         /*border:0px;*/
         opacity:0;
+
         @include transition( 500ms opacity );
         @include transition-delay(800ms);
 
@@ -44,6 +45,8 @@ $lightw:rgba(255,255,255,0.1);
         border-left: 1px solid $lightb;
         border-right: 1px solid $lightw;
         border-bottom: 1px solid $lightw;
+
+        border-radius: 12px;
 
 
         display: block;
@@ -55,6 +58,7 @@ $lightw:rgba(255,255,255,0.1);
 
     .enterBtn:hover{
         background:url('../images/clouds.jpg');
+        box-shadow:inset 0px 0px 20px rgba(0,0,0,0.5);
         color:rgba( 255,255,255, 0.4)
     }
 

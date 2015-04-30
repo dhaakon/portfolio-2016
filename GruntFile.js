@@ -24,7 +24,10 @@ module.exports = function(grunt){
     browserify:{
       dist:{
         files:{
-          'app/js/dist/main.js':'app/js/src/main.js'
+          'public/js/main.js':'app/js/src/main.js'
+        },
+        options:{
+            require: ['three']
         }
       }
     },
@@ -81,7 +84,7 @@ module.exports = function(grunt){
         //},
         app: {
             files: 'app/js/src/**/*.js',
-            tasks: ['browserify:dist', 'uglify:dist'],
+            tasks: ['browserify:dist'],
             options: {
                 livereload: '<%= app_config.app.livereloadPort %>'
             }
@@ -116,6 +119,6 @@ module.exports = function(grunt){
   ]);
 
 
-  grunt.registerTask( 'dev', ['sass', 'browserify', 'uglify','concurrent:dev'])
+  grunt.registerTask( 'dev', ['sass', 'browserify','concurrent:dev'])
   grunt.registerTask('default', ['']);
 }

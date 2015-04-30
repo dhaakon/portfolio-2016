@@ -1,6 +1,12 @@
 var Portfolio = require('./portfolio');
 var Visualization = require('./visualization');
 
+var Timeline = require('dhaak-anim').Timeline;
+var Tween = require('dhaak-anim').Tween;
+var Easing = require('dhaak-anim').Easing;
+
+var Animations = require('./animations/animations')
+
 var App = function(){
     this.path = '/json/work/';
     this.banner = document.getElementById('header');
@@ -9,24 +15,31 @@ var App = function(){
     this.enterButton = document.querySelectorAll('.enterBtn')[0];
 
     this.animateBanner();
-
     this.init();
 };
 
 var proto = App.prototype = {};
 
 proto.animateBanner = function(){
-    setTimeout(
-        function(){
-            this.banner.style.opacity = 1;
-            this.banner.style.top = '40%';
+    var tween = new Tween( { 
+        duration: 500,
+        delay: 500,
+        node:this.banner
+    } );
 
-            this.enterButton.style.opacity = 1;
+    var update = function(node, c) { 
+        this.banner.style.opacity = c;
+        
+        this.banner.style.top = c[1] + '%';
+        this.banner.style.opacity = c[0];
+        this.enterButton.style.opacity = [2];
+    }.bind(this, 'a');
 
-        }.bind(this),
-        500
-    );
-}
+    tween.ease(Easing.easeInQuad)
+         .curve(new Tween.Line([-1,30, -10],[1, 40, 1]))
+         .update( update )
+         .play()
+};
 
 proto.init = function(){
     this.createPortfolio();
