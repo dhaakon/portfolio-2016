@@ -1,10 +1,10 @@
 {
-  "name": "pi_server",
+  "name": "dhaakon-portfolio-2015",
   "version": "1.0.0",
-  "description": "pi server",
+  "description": "",
   "main": "app/index.js",
   "scripts": {
-    "start": "node app/app.js"
+    "start": "node app/index.js"
   },
   "author": "",
   "license": "ISC",
