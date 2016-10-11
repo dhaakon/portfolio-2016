@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Korolev Pro';
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/Korolev Pro/Korolev Bold.otf") format("otf"); }
+
+@font-face {
+  font-family: 'NeueHaasGrotesk';
+  font-style: normal;
+  font-weight: 100;
+  src: url("/fonts/NeueHaasGrotesk/NHaasGroteskDSPro-55Rg.ttf"); }

@@ -1,0 +1,25 @@
+.clearfix {
+	&:after {
+		visibility: hidden;
+		display: block;
+		font-size: 0;
+		content: " ";
+		clear: both;
+		height: 0;
+	}
+}
+
+/*************************
+*
+* MIXINS
+*  
+**************************/
+@mixin moment-text(){
+	@include DINCondensed-Regular;
+	font-size: 18px;
+	text-transform: uppercase;
+	color: $nav_red;
+	@include viewport(sm) {
+		font-size: 16px;
+	}
+}

@@ -1,0 +1,87 @@
+.loader-container{
+  width:100%;
+  height:100%;
+  position:absolute;
+  z-index:99999;
+  background: white;
+  @include transform( translate3d(0px,0px,1px) );
+  @include transition( 0.99s opacity ease-in 0.5s );
+
+  &.fade-out{
+    opacity:0;
+  }
+  
+  &.after-fade-out{
+    display:none;
+    /*transition-delay: 1s;*/
+  }
+
+}
+
+#loader{
+  width:100%;
+  height:100%;
+
+  .image-container{
+    width: 250px;
+    height: 150px;
+    display: block;
+    position:relative;
+    margin: 0 auto;
+
+    img{
+      position:absolute;
+      width: 125px;
+      right: 42px;
+    }
+  }
+  .content{
+    p{
+      color: $nav_red;
+      /*text-transform: uppercase;*/
+      font-size:14px;
+      @include NHaasGroteskTXStd-55Rg; 
+      letter-spacing: -0.27px;
+      width:250px;
+    }
+    top: 30%;
+
+    @include ipad{
+      top:40%;
+    }
+
+    @include horizontal-align();
+    text-align:center;
+    position:absolute;
+
+
+    ul{
+      list-style:none;
+    }
+  }
+}
+@for $i from 1 through 4{
+
+$dip:50px;
+
+@include keyframes( fade-circles-#{$i} ){
+  0%{
+    opacity:0;
+    @include transform(translate3d(0px,-$dip,1px) scale(1));
+  }20%{
+    opacity:0;
+    @include transform(translate3d(0px,0px,1px )scale(1));
+  }50%{
+    opacity:1;
+    @include transform(translate3d(0px,$dip,1px )scale(1));
+  }70%{
+    opacity:0;
+    @include transform(translate3d(0px,0px,1px) scale(1));
+  }100%{
+    opacity:0;
+    @include transform(translate3d(0px,-$dip,1px) scale(1));
+  }
+}
+}
+
+

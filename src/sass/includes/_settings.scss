@@ -1,0 +1,110 @@
+//global colors
+$mcDonaldsRed: #d8292f;
+$mustard: #ffc836;
+$facebook: #3b5998;
+$twitter: #00aced;
+$instagram: #517fa4;
+$gray:#585858;
+$dark_gray:#333;
+$lightGray:#D8D8D8;
+$medium_gray: #9B9B9B;
+
+// Fonts
+$din: "Din Condensed";
+
+//mixins
+@mixin vertical-align {
+  //position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+};
+
+@mixin horizontal-align {
+  //position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+@mixin icon-pseudo($name) {
+    font-family: "FontAwesome";
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    content: $name;
+    //@extend .#{$name}:before;
+}
+
+@mixin center($horizontal: true, $vertical: true) {
+  position: absolute;
+
+  @if ($horizontal and $vertical) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);  
+
+  } @else if ($horizontal) {
+    left: 50%;
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);  
+
+  } @else if ($vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);  
+  }
+}
+
+@mixin add-image($imgpath) {
+    background: {
+        image: url($imgpath);
+        size: contain;
+        repeat: no-repeat;
+    }
+}
+
+@mixin add-image-sprite($imgpath) {
+    background: {
+        image: url($imgpath);
+        repeat: no-repeat;
+        //background-position: 0 0; 
+        //size: contain;
+        //background-size: 100% 200%;
+    }
+    
+    //width: $width;
+    //height: $height;
+}
+
+@mixin background-image($imgpath) {
+    background: {
+        image: url($imgpath);
+        size: cover;
+        repeat: no-repeat;
+        position: center center;
+        color: #fff;
+    }
+}
+
+@mixin responsive-animation() {
+        -webkit-transition: all .25s ease-out;
+       -moz-transition: all .25s ease-out;
+        -ms-transition: all .25s ease-out;
+         -o-transition: all .25s ease-out;
+            transition: all .25s ease-out; 
+    
+}
+
+@mixin opacity-animation() {
+        -webkit-transition: opacity .5s ease-out;
+       -moz-transition: opacity .5s ease-out;
+        -ms-transition: opacity .5s ease-out;
+         -o-transition: opacity .5s ease-out;
+            transition: opacity .5s ease-out; 
+
+}

@@ -1,0 +1,34 @@
+@font-face{
+  font-family: 'Korolev Pro';
+    font-style: normal;
+    font-weight: 500;
+    src: url("/fonts/Korolev Pro/Korolev Bold.otf") format("otf");
+}
+@font-face{
+  font-family: 'NeueHaasGrotesk';
+    font-style: normal;
+    font-weight: 100;
+
+  src: url("/fonts/NeueHaasGrotesk/NHaasGroteskDSPro-55Rg.ttf");
+}
+
+@mixin DINCondensed-Regular { 
+	font-family: 'DIN Next LT W04 Medium Cond';
+	font-weight: normal;
+	font-style: normal;
+}
+@mixin Korolev-Bold { 
+	font-family: Korolev-Bold;
+	font-weight: normal;
+	font-style: normal;
+}
+@mixin NHaasGroteskTXStd-55Rg { 
+	font-family: NHaasGroteskTXStd-55Rg;
+	font-weight: normal;
+	font-style: normal;
+}
+@mixin NHaasGroteskTXStd-75Bd { 
+	font-family: NHaasGroteskTXStd-75Bd;
+	font-weight: normal;
+	font-style: normal;
+}

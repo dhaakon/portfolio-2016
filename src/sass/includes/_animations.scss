@@ -1,0 +1,39 @@
+@keyframes bounce-forward {
+	from, 10%, 53%, 80%, to {
+		animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		transform: scale(1, 1);
+	}
+	40%, 43% {
+		animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+		transform: scale(1.5, 1.5);
+	}
+	70% {
+		animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+		transform: scale(0.8, 0.8);
+	}
+	90% {
+		transform: scale(1.2, 1.2);
+	}
+}
+
+@keyframes swing {
+  20% {
+    transform: rotate(25deg);
+  }
+
+  40% {
+    transform: rotate(-20deg);
+  }
+
+  60% {
+    transform: rotate(15deg);
+  }
+
+  80% {
+    transform: rotate(-15deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}

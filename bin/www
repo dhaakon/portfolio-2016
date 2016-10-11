@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+
+var app    = require('../app');
+var config = { PORT : 5000 };
+
+app.set('port', config.PORT);
+
+var server = app.listen(config.PORT, function()
+{
+	console.log("listening on port", config.PORT, "\n");
+});

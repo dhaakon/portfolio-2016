@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title custom brush
+    link(rel="stylesheet", href="/css/main.css")
+    include ./blocks/js_dependencies.jade
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no')
+
+    block custom_styles
+    include ./includes/favicon.jade
+    if share
+      block share
+    // meta
+
+  body
+    .modal-container
+      block containers
+    
+    block loader
+    div.container
+      div.wrapper
+
+        include ./blocks/header_navigation.jade
+        block content
+
+block js_scripts
+
+include ./blocks/google_analytics.jade

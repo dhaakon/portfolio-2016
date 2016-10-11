@@ -1,0 +1,168 @@
+.configuration{
+   @include DINCondensed-Regular;
+   color:white;
+   width: 100%;
+   @include ipad{
+    min-width:1024px;
+   }
+
+   display: none;
+   &.open{
+    display: block;
+   }
+
+   li{
+    list-style:none;
+   }
+
+   #callout{
+     background: none;
+     padding-left: 10%;
+     padding-top: 70px;
+
+     h1{
+       color: white;
+       text-align: left;
+       @include DINCondensed-Regular;
+       font-size: 20px; 
+     }
+   }
+   a{p{
+   display:inline-block;
+   font-size: 16px;
+   letter-spacing:0.2px;
+   line-height: 20px;
+  }}
+
+   .back{
+    width: 13px;
+    height: 22px;
+    background: url('/img/back.png');
+    position:absolute;
+    top: 18px;
+    left: 18px;
+   }
+
+   .services, .notifications{ display: block; }
+
+   .notifications{
+    height: 200px;
+    a{
+     &.inactive{
+      opacity: 1;
+     }
+    }
+   }
+
+   .services li > p, .notification-link, .notification-link > p{
+    display: inline-block;
+    float: left;
+   }
+
+   .services > li, .notification-link{
+    display: block;
+    width: 100%; 
+    
+    background: $dark_red;
+   }
+
+   .services{
+    margin-top:80px;
+
+    li{
+      position: relative;
+      &.active{
+        /*opacity: 0.5;*/
+      }
+      p{
+        margin-left: 62px;
+        line-height: 20px;
+        &:before{
+          content:'';
+          width: 45px;
+          height: 45px;
+          display: inline-block;
+          background: white;
+          position:absolute;
+          top:12px;
+          left: 32px;
+          @include ipad{
+            left: 10%;
+          }
+        }
+      }
+
+      &.facebook{ p{ &:before{ background: url('/img/mobile_btn_facebook_white.png'); }}}
+      &.google{ p{ &:before{ background: url('/img/mobile_btn_google_white.png'); }}}
+      &.instagram{ p{ &:before{ background: url('/img/mobile_btn_instagram_white.png'); }}}
+    }
+
+   }
+
+   li{
+    border-top: 1px solid rgba(0,0,0,0.1);
+
+    &.inactive{
+      border-top: 1px solid rgba(0,0,0,0.25);
+
+      &:last-child{
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+      }
+    }
+
+    &:last-child{
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    text-transform: uppercase;
+
+    $P: 26px;
+    padding-top: $P;
+    padding-bottom: $P;
+    padding-left : 10%;
+    padding-right: 10%;
+    height: 66px;
+   }
+
+   button.toggle{
+    display: inline-block;
+    float:right;
+    width: 44px;
+    height: 20px;
+    background: url('/img/mobile_btn_toggle_active.png');
+    &.checked{
+      background: url('/img/mobile_btn_switch_on.png');
+      width: 40px;
+      height: 22px;
+    }
+    &.connected{
+      width: 28px;
+      height: 22px;
+      background: url('/img/mobile_btn_connected.png');
+    }
+    &.disconnected{
+      background: url('/img/mobile_btn_disconnected.png');
+      height: 22px;
+      width: 28px;
+    }
+
+   }
+
+   button.delete{
+    @include DINCondensed-Regular;
+    width: 250px;
+    text-align: center;
+    margin: 30px auto;
+    height: 44px;
+    background: gray;
+    box-shadow: 0px 3px 0px black;
+    border-radius: 2px;
+    @include horizontal-align;
+
+    font-size: 20px;
+    letter-spacing: 0.5px;
+   }
+
+
+
+   
+}

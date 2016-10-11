@@ -1,0 +1,46 @@
+/* colors */
+$bg_color: rgb( 255, 255, 255 );
+$facebook_color: rgb( 100, 100, 250);
+$google_color: rgb( 250, 100, 100);
+
+$nav_red: #D4291E;
+$dark_red: #C72821;
+
+@mixin border-shadow(){
+  box-shadow: inset 0px 0px 8px rgba( 0, 0, 0, 0.125 );
+}
+
+$bw: 295px;
+$bh: 47px;
+
+.facebook-signin{
+  width: $bw; height: $bh;
+  background: url('/img/btn_mobile_signin_facebook.png');
+  background-size: $bw $bh;
+  display:block;
+}
+
+.google-signin{
+  width: $bw; height: $bh;
+  background: url('/img/mobile_btn_google.png');
+  background-size: $bw - 1 $bh - 2;
+  display:block;
+}
+
+hr.dotted {
+height:9px; /* specify a height for this hr */
+overflow:hidden;
+border:0px;
+position: relative;
+
+&:after{
+  content:"..............................................................................................................................................";
+    letter-spacing: -0.75px;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.5);
+    line-height: 0px;
+    position: absolute;
+    left: 0px;
+    height: 3px;}
+}
