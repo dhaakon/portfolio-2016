@@ -1,11 +1,13 @@
 {
-  "name": "sports-dk",
+  "name": "port-2016",
   "version": "1.0.0",
-  "description": "sports betting software",
+  "description": "ports",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"./bin/www"
   },
+  "engine":"6.3.1",
   "repository": {
     "type": "git",
     "url": "git+https://dhaakon@bitbucket.org/dhaakon/sports-dk.git"
