@@ -1,8 +1,120 @@
 extends layout
 
+block custom_styles
+  link(href="https://fonts.googleapis.com/css?family=Dosis|Rubik|Signika", rel="stylesheet")
+
 block content
   div.main
-    canvas.sketchpad( width=800, height=1000 )
+    section#splash
+      canvas.sketchpad( width=800, height=720 )
+
+    section#about
+      h2 david haakon poyner
+      h3 creative technologist
+      p.description
+        //-| I'm a multidisciplinary-visionary-creative-technical, not-always-on-time
+        //-| (unless its a really important meeting or deadline) technologist? developer? artist? craftsman. 
+        //-| I'm not sure how to label myself but I do think my work speaks for itself. I've had a large hand 
+        //-| in the creation of multiple successful products for campaigns and customers so I must be doing something 
+        //-| right. Although each project presents itself with a fresh set of problems. I believe in good solid coding 
+        //-| fundamentals which allows for the quick adaptation and implementation of multiple frameworks and languages.
+
+    section#work
+      h1 <span class='music'>&#x266C <b>&#x266A</b> &#x266C <b>&#x266A</b></span> work work work work work work work <span class='music'>&#x266C <b>&#x266A</b> &#x266C <b>&#x266A</b></span>
+      .project
+        .title
+          h1 Meus Momentos Gigantes - 2016
+        .client
+          h2 Claro/Google
+        p.description 
+          | Claro South America was looking for a way to connect with customers throughout the Rio Olympics. 
+          | I led the development of a custom social media platform which integrated multiple social media 
+          | accounts and matched user photos with olympic moments. User’s could connect with Facebook, Instagram, 
+          | Twitter, and upload their own photos from their device. A custom backend was built which processed the 
+          | photos through a nudity filter before being available for real-time moderation.
+          </br>
+          </br>
+          | At the end of the olympics users were invited to create a dynamic video which used their timeline 
+          | photos. A custom video with the user’s photos could be then uploaded to youtube.
+        p.role
+          h2 role/skills
+          ul
+            li lead architect
+
+        iframe( src="https://www.youtube.com/embed/w1ntpqh6piU")
+      .project
+        .title
+          h1 Coke Zero Drinkable Billboard - 2015
+        .client
+          h2 Ogilvy/Coke 
+        p.description
+          | I led the front-end development for the user experience of the Coke Drinkable Commercial/Billboard. 
+          | During major sporting events users were encouraged to ‘shazam’ a Coke TV spot. They were then sent 
+          | a text message providing a link to redeem a free coke zero coupon.
+        p.role
+          h2 role/skills
+          ul
+            li lead architect
+
+        iframe( src="https://www.youtube.com/embed/jdvteFAmG_k")
+
+      .project
+        .title
+          h1 McDonald's Burger Showdown - 2015
+        .client
+          h2 Cossette/McDonalds
+        p.description
+          | McDonald’s created a regional campaign encouraging it’s customers to create their own burger. I 
+          | led the full stack development of a custom burger building platform. Customer’s could create thousands 
+          | of different burgers from 67 different ingredients. They then named and shared their burgers to their 
+          | favorite social media platform. After the burger building phase was over- customers were able to then 
+          | vote on which burgers should become the finalist.
+          | The final 8 burgers were then judged by panelist and introduced into Chicago McDonald’s. This campaign 
+          | was used multiple times in different markets over the past couple of years.
+        p.role
+          h2 role/skills
+          ul
+            li lead architect
+
+        iframe(src="https://player.vimeo.com/video/173686291", frameborder="0", webkitallowfullscreen, mozallowfullscreen, allowfullscreen)
+
+      .project
+        .title
+          h1 Mad Libs - 2014
+        .client
+          h2 Kettle/Penguin
+        p.description 
+          | The immensely popular word game Mad Lib’s needed a digital reboot. The goal was to create a highly 
+          | addictive, scaleable, cross-platform application. All under a very tight deadline. I led the development 
+          | as well as helped guide the creative process insuring a successful launch. The game has been downloaded 
+          | +5 million times and was featured in the iTunes essential categories.
+        p.role
+          h2 role/skills
+          ul
+            li lead architect
+
+        iframe( src="https://www.youtube.com/embed/KdbGtQ-vVtU")
+
+      .project
+        .title
+          h1 McDonald's Interactive Billboard - 2014
+        .client
+          h2 Bossa/McDonalds
+        p.description
+          | A one time experience which ran days before Christmas and was located in Picadilly Circus. A floating
+          | Christmas cracker was displayed on a prominent billboard. Users were then encouraged to connect to 
+          | the billboard via their smartphone. Once two people connected the first person to swipe would receive 
+          | a prize.
+        p.role
+          h2 role/skills
+          ul
+            li lead architect
+
+        iframe(src="https://player.vimeo.com/video/124232650", frameborder="0", webkitallowfullscreen, mozallowfullscreen, allowfullscreen)
+
+    section#contact
+      h1 <strike> Call Me on My Cellphone</strike> Email
+      a dhaakon@gmail.com
 
 block js_scripts
   script(src="/js/build.js")

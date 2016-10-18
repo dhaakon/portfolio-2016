@@ -1,11 +1,28 @@
 @import 'includes/settings';
 @import 'includes/media-queries';
+@import 'sections/header';
+@import 'sections/work';
+@import 'sections/contact';
+@import 'sections/about';
 
 $color: white;
+
+
+html, body{ height: 100%; }
 
 body{
   background: white;
   margin:0px;
+
+}
+
+#splash{
+  height: 720px;
+}
+
+.description{
+  width: 720px;
+  margin: 0 auto;
 }
 
 .sketchpad{
@@ -15,6 +32,38 @@ body{
   margin: 0 auto;
   text-align: center;
   display: block;
-
-  @include center();
+  position: relative;
+  min-height: 720px;
 }
+
+canvas{
+  display: block;
+}
+
+.main{
+  min-height: 100px;
+}
+
+.wrapper, .main{
+  min-height: 1%;
+  overflow: visible;
+  height: 100%;
+}
+
+.container{
+  height: 100%;
+  min-height: 1%;
+  overflow: visible;
+}
+
+.about, .contact{
+  height: 100%;
+}
+
+section{
+  clear: both;
+  font-family: 'Rubik';
+  min-height: 1%;
+  overflow: visible;
+}
+

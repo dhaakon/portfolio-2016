@@ -11918,9 +11918,9 @@ var Bristle = function () {
 
     this.dir = [1, -1][round(Math.random() * 1)];
 
-    this.sway = this.dir * (0, _helpers.rand)(2, 20);
-    this.life = Math.round((0, _helpers.rand)(10, 200));
-    this.influence = (0, _helpers.rand)(20, 80);
+    this.sway = this.dir * (0, _helpers.rand)(1, 5);
+    this.life = Math.round((0, _helpers.rand)(10, 500));
+    this.influence = (0, _helpers.rand)(20, 300);
 
     var r = 0; // Math.round( rand( 255 ) );
 
@@ -12030,7 +12030,7 @@ var Brush = function () {
     //this.tracker.y = (Math.sin( (Math.PI / 180) * 0 ) * _R) + _RY;
 
     this.tracker.x = this.ctx.canvas.width / 2;
-    this.tracker.y = this.ctx.canvas.height / 2;
+    this.tracker.y = this.ctx.canvas.height;
 
     this.bristles = this.createBristles();
   }
@@ -12089,7 +12089,7 @@ var Brush = function () {
 
 var proto = Brush.prototype;
 
-proto.numBristles = 15;
+proto.numBristles = 20;
 
 proto.tracker = {
   x: 100,

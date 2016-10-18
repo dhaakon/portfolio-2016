@@ -32,7 +32,7 @@ class Brush{
     //this.tracker.y = (Math.sin( (Math.PI / 180) * 0 ) * _R) + _RY;
 
     this.tracker.x = this.ctx.canvas.width/2;
-    this.tracker.y = this.ctx.canvas.height/2;
+    this.tracker.y = this.ctx.canvas.height;
 
     this.bristles = this.createBristles();
 
@@ -91,7 +91,7 @@ class Brush{
 
 var proto = Brush.prototype;
 
-proto.numBristles = 15;
+proto.numBristles = 20;
 
 proto.tracker = {
   x : 100,

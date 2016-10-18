@@ -39,9 +39,9 @@ class Bristle{
 
     this.dir = [ 1, -1 ][ round( Math.random() * 1 )];
 
-    this.sway = this.dir * rand( 2, 20);
-    this.life = Math.round( rand( 10, 200 ) );
-    this.influence = rand( 20, 80 );
+    this.sway = this.dir * rand( 1, 5 );
+    this.life = Math.round( rand( 10, 500 ) );
+    this.influence = rand( 20, 300 );
 
     let r = 0;// Math.round( rand( 255 ) );
 
