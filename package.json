@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"./bin/www"
+    "start": "./bin/www"
   },
-  "engine":"6.3.1",
+  "engine": "6.3.1",
   "repository": {
     "type": "git",
     "url": "git+https://dhaakon@bitbucket.org/dhaakon/sports-dk.git"
@@ -43,6 +43,7 @@
     "passport": "^0.3.2",
     "scrollmagic": "^2.0.5",
     "serve-favicon": "^2.3.0",
+    "serve-index": "^1.8.0",
     "underscore": "^1.8.3",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
