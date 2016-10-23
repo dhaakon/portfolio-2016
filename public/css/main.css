@@ -133,7 +133,7 @@ footer .links {
   width: 400px;
   margin: 0 auto; }
   footer .links a {
-    padding-left: 20px; }
+    padding-left: 80px; }
     footer .links a:first-child {
       padding-left: 0px; }
 
@@ -160,7 +160,7 @@ canvas {
 
 .main {
   min-height: 100px;
-  max-width: 1480px;
+  min-width: 1480px;
   margin: 0 auto; }
 
 .wrapper, .main {
