@@ -4,6 +4,7 @@
 @import 'sections/work';
 @import 'sections/contact';
 @import 'sections/about';
+@import 'sections/footer';
 
 $color: white;
 
@@ -18,11 +19,6 @@ body{
 
 #splash{
   height: 720px;
-}
-
-.description{
-  width: 720px;
-  margin: 0 auto;
 }
 
 .sketchpad{
@@ -42,6 +38,8 @@ canvas{
 
 .main{
   min-height: 100px;
+  max-width: 1480px;
+  margin: 0 auto;
 }
 
 .wrapper, .main{

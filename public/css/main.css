@@ -1,9 +1,15 @@
 #header {
   height: 80px;
   width: 100%;
+  margin: 0px auto;
+  max-width: 1480px;
   position: absolute;
   z-index: 4;
   top: 0px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
   font-family: 'Rubik';
   font-size: 14px; }
   #header #right {
@@ -42,29 +48,94 @@
 
 #work {
   text-align: center; }
+  #work .title h1 {
+    font-size: 28px;
+    background: rgba(90, 90, 160, 0.2); }
   #work .project {
-    min-height: 800px;
+    min-height: 640px;
     height: 100%;
+    min-width: 1280px;
+    max-width: 1480px;
+    margin: 0 auto;
+    width: 100%;
     margin-bottom: 80px;
     text-align: center;
     width: 100%;
     height: 100%;
     display: block; }
+    #work .project .description {
+      margin: 0 auto;
+      font-family: "Source Sans Pro";
+      font-size: 16px;
+      font-weight: bold; }
+    #work .project h1 {
+      margin: 0px;
+      height: 60px;
+      line-height: 62px; }
+    #work .project.alt .specs {
+      float: right; }
+    #work .project.alt .poster {
+      float: left; }
+    #work .project .specs, #work .project .poster {
+      margin-top: 50px; }
+    #work .project .specs {
+      float: left;
+      width: 20%;
+      display: inline-block;
+      text-align: left;
+      padding-left: 20px;
+      min-width: 400px; }
+    #work .project .client h2 {
+      display: inline-block;
+      font-size: 20px; }
+    #work .project .poster {
+      float: right;
+      width: 1024px;
+      margin: 50px auto 0 auto;
+      display: inline-block; }
+      #work .project .poster img {
+        width: 1024px; }
     #work .project iframe {
       min-height: 480px;
       width: 100%;
       height: 100%;
       max-height: 720px;
       max-width: 1024px; }
-    #work .project h1 {
-      font-size: 32px;
-      background: rgba(90, 90, 160, 0.2); }
+    #work .project .role {
+      margin-top: 50px; }
+      #work .project .role h2 {
+        font-size: 20px; }
+      #work .project .role ul {
+        margin-left: 20px;
+        padding-left: 0px; }
+        #work .project .role ul li {
+          font-family: "Source Sans Pro";
+          font-size: 16px;
+          font-weight: bold;
+          font-size: 13px;
+          list-style: bullet;
+          margin-left: 0px;
+          padding-left: 0px; }
+
+#contact {
+  height: 300px; }
+  #contact a, #contact h1 {
+    display: inline-block;
+    font-size: 18px; }
 
 #about {
   text-align: center;
   margin-bottom: 100px; }
   #about h2, #about h3 {
     margin: 0px; }
+
+footer .links {
+  width: 400px;
+  margin: 0 auto; }
+  footer .links a {
+    padding-left: 20px; }
+    footer .links a:first-child {
+      padding-left: 0px; }
 
 html, body {
   height: 100%; }
@@ -75,10 +146,6 @@ body {
 
 #splash {
   height: 720px; }
-
-.description {
-  width: 720px;
-  margin: 0 auto; }
 
 .sketchpad {
   background: white;
@@ -92,7 +159,9 @@ canvas {
   display: block; }
 
 .main {
-  min-height: 100px; }
+  min-height: 100px;
+  max-width: 1480px;
+  margin: 0 auto; }
 
 .wrapper, .main {
   min-height: 1%;

@@ -1,9 +1,12 @@
 #header{
   height: 80px;
   width: 100%;
+  margin: 0px auto;
+  max-width: 1480px;
   position: absolute;
   z-index: 4;
   top: 0px;
+  @include horizontal-align();
   
   #right{
     position: absolute;

@@ -1,4 +1,5 @@
 import { Brush } from './modules/brush.jsx';
+import { Scroll } from './modules/scroll.jsx';
 
 let _ = require('underscore');
 
@@ -19,6 +20,7 @@ class App{
     console.log(_canvas, _ctx);
 
     this.brush = new Brush( _ctx );
+    this.scroll = new Scroll();
 
     this.loop();
   }

@@ -1,7 +1,7 @@
 extends layout
 
 block custom_styles
-  link(href="https://fonts.googleapis.com/css?family=Dosis|Rubik|Signika", rel="stylesheet")
+  link(href="https://fonts.googleapis.com/css?family=Dosis|Rubik|Signika|Source+Sans+Pro", rel="stylesheet")
 
 block content
   div.main
@@ -23,135 +23,168 @@ block content
       h1 <span class='music'>&#x266C <b>&#x266A</b> &#x266C <b>&#x266A</b></span> work work work work work work work <span class='music'>&#x266C <b>&#x266A</b> &#x266C <b>&#x266A</b></span>
       .project
         .title
-          h1 Meus Momentos Gigantes - 2016
-        .client
-          h2 Claro/Google
-        p.description 
-          | Claro South America was looking for a way to connect with customers throughout the Rio Olympics. 
-          | I led the development of a custom social media platform which integrated multiple social media 
-          | accounts and matched user photos with olympic moments. User’s could connect with Facebook, Instagram, 
-          | Twitter, and upload their own photos from their device. A custom backend was built which processed the 
-          | photos through a nudity filter before being available for real-time moderation.
-          </br>
-          </br>
-          | At the end of the olympics users were invited to create a dynamic video which used their timeline 
-          | photos. A custom video with the user’s photos could be then uploaded to youtube.
-        p.role
-          h2 role/skills
-          ul
-            li Lead Architect
-            li Lead Developer (Front End)
-            li Dynamic Video Creation
-            li Google Cloud Platform
-            li Docker
-            li ECMA 6
+          h1 Meus Momentos Gigantes
+        .specs
+          .client
+            h2 Client:&nbsp;
+            h2 Claro/Google
+          p.description 
+            | Claro South America was looking for a way to connect with customers throughout the Rio Olympics. 
+            | I led the development of a custom social media platform which integrated multiple social media 
+            | accounts and matched user photos with olympic moments.A custom backend was built which processed the 
+            | photos through a nudity filter before being available for real-time moderation.
+            </br>
+            </br>
+            | At the end of the olympics users were invited to create a dynamic video which used their timeline 
+            | photos. A custom video with the user’s photos could be then uploaded to youtube.
+          .role
+            h2 role/skills
+            ul
+              li Lead Architect
+              li Lead Developer (Front End)
+              li Dynamic Video Creation
+              li Google Cloud Platform
+              li Docker
+              li ECMA 6
             
+        .poster
+          iframe( src="https://www.youtube.com/embed/w1ntpqh6piU")
 
-        iframe( src="https://www.youtube.com/embed/w1ntpqh6piU")
-      .project
+      .project.alt
         .title
-          h1 Coke Zero Drinkable Billboard - 2015
-        .client
-          h2 Ogilvy/Coke 
-        p.description
-          | I led the front-end development for the user experience of the Coke Drinkable Commercial/Billboard. 
-          | During major sporting events users were encouraged to ‘shazam’ a Coke TV spot. They were then sent 
-          | a text message providing a link to redeem a free coke zero coupon.
-        p.role
-          h2 role/skills
-          ul
-            li Lead Front-end Developer
-            li Backend Developer
-            li Node
-        iframe( src="https://www.youtube.com/embed/jdvteFAmG_k")
-
-      .project
-        .title
-          h1 McDonald's Burger Showdown - 2015
-        .client
-          h2 Cossette/McDonalds
-        p.description
-          | I built a burger building platform for McDonald’s Chicago. This was all custom software built with
-          | PIXI.js as the rendering engine. Burgers were eventually voted upon through the app and selected to
-          | be on the menu in Chicago.
-          </br>
-          | Fun fact: The campaign and platform was reused in multiple markets. In New Zealand, someone forgot 
-          | to update and use the profanity filter we implemented. This resulted in bad press and a virile article 
-          | about inappropriate burger names.
-        p.role
-          h2 role/skills
-          ul
-            li Lead Architect
-            li Lead Developer
-            li PIXI.js
-            li Node
-            li Backbone
-        iframe(src="https://player.vimeo.com/video/173686291", frameborder="0", webkitallowfullscreen, mozallowfullscreen, allowfullscreen)
+          h1 Coke Zero Drinkable Billboard
+        .specs
+          .client
+            h2 Client:&nbsp;
+            h2 Ogilvy/Coke 
+          p.description
+            | I led the front-end development for the user experience of the Coke Drinkable Commercial/Billboard. 
+            | During major sporting events users were encouraged to ‘shazam’ a Coke TV spot. They were then sent 
+            | a text message providing a link to redeem a free coke zero coupon.
+          .role
+            h2 role/skills
+            ul
+              li Lead Front-end Developer
+              li Backend Developer
+              li Node
+        .poster
+          iframe( src="https://www.youtube.com/embed/jdvteFAmG_k")
 
       .project
         .title
-          h1 Mad Libs - 2014
-        .client
-          h2 Kettle/Penguin
-        p.description 
-          | The immensely popular word game Mad Lib’s needed a digital reboot. The goal was to create a highly addictive,
-          | scaleable, cross-platform application. All under a very tight deadline. I led the development as well as helped
-          | guide the creative process insuring a successful launch. The game has been downloaded +5 million times and was
-          | featured in the iTunes essential categories. It was also built to implement a smart template system which allowed
-          | for multiple white label versions of the app: WWE, Family Guy, Hello Kitty!, Adventure Time etc…
-          </br>
-          | Fun fact: Apple loved the app so much they tweeted about it upon release.
-        p.role
-          h2 role/skills
-          ul
-            li Lead Architect
-            li Lead Developer
-            li iOS Development
-            li Titanium
-        iframe( src="https://www.youtube.com/embed/KdbGtQ-vVtU")
+          h1 McDonald's Burger Showdown
+
+        .specs
+          .client
+            h2 Client:&nbsp;
+            h2 Cossette/McDonalds
+          p.description
+            | I built a burger building platform for McDonald’s Chicago. This was all custom software built with
+            | PIXI.js as the rendering engine. Burgers were eventually voted upon through the app and selected to
+            | be on the menu in Chicago.
+            </br>
+            </br>
+            | Fun fact: The campaign and platform was reused in multiple markets. In New Zealand, someone forgot 
+            | to update and use the profanity filter we implemented. This resulted in bad press and a virile article 
+            | about inappropriate burger names.
+          .role
+            h2 role/skills
+            ul
+              li Lead Architect
+              li Lead Developer
+              li PIXI.js
+              li Node
+              li Backbone
+        .poster
+          iframe(src="https://player.vimeo.com/video/173686291", frameborder="0", webkitallowfullscreen, mozallowfullscreen, allowfullscreen)
+
+      .project.alt
+        .title
+          h1 Mad Libs
+
+        .specs
+          .client
+            h2 Client:&nbsp;
+            h2 Kettle/Penguin
+          p.description 
+            | The immensely popular word game Mad Lib’s needed a digital reboot. The goal was to create a highly addictive,
+            | scaleable, cross-platform application. All under a very tight deadline. I led the development as well as helped
+            | guide the creative process insuring a successful launch. The game has been downloaded +5 million times and was
+            | featured in the iTunes essential categories. It was also built to implement a smart template system which allowed
+            | for multiple white label versions of the app: WWE, Family Guy, Hello Kitty!, Adventure Time etc…
+            </br>
+            </br>
+            | Fun fact: Apple loved the app so much they tweeted about it upon release.
+          .role
+            h2 role/skills
+            ul
+              li Lead Architect
+              li Lead Developer
+              li iOS Development
+              li Titanium
+        .poster
+          iframe( src="https://www.youtube.com/embed/KdbGtQ-vVtU")
 
       .project
         .title
-          h1 McDonald's Interactive Billboard - 2014
-        .client
-          h2 Bossa/McDonalds
-        p.description
-          | A one time experience which ran days before Christmas and was located in Picadilly Circus. A floating Christmas 
-          | cracker was displayed on a prominent billboard. Users were then encouraged to connect to the billboard via their
-          | smartphone. Once two people connected the first person to swipe would receive a prize.
+          h1 McDonald's Interactive Billboard
 
-        p.role
-          h2 role/skills
-          ul
-            li Lead Architect
-            li OpenFrameworks
-            li Node
-            li WebSockets
+        .specs
+          .client
+            h2 Client:&nbsp;
+            h2 Bossa/McDonalds
+          p.description
+            | A one time experience which ran days before Christmas and was located in Picadilly Circus. A floating Christmas 
+            | cracker was displayed on a prominent billboard. Users were then encouraged to connect to the billboard via their
+            | smartphone. Once two people connected the first person to swipe would receive a prize.
 
-        iframe(src="https://player.vimeo.com/video/124232650", frameborder="0", webkitallowfullscreen, mozallowfullscreen, allowfullscreen)
+          .role
+            h2 role/skills
+            ul
+              li Lead Architect
+              li OpenFrameworks
+              li Node
+              li WebSockets
 
-      .project
+        .poster
+          iframe(src="https://player.vimeo.com/video/124232650", frameborder="0", webkitallowfullscreen, mozallowfullscreen, allowfullscreen)
+
+      .project.alt
         .title
-          h1 fancy portfolio r.i.p.
-        .client
-          h2 Bossa/McDonalds
-        p.description
-          | My old portfolio built CoffeeScript using CoffeePhysics and my custom grunt process for parsing SVG files. 
-          | Fun little diddy which showcases some of my older interactive work for clients such as IBM and UBS. Also be 
-          | sure to check out some of my old experiments.
-        p.role
-          h2 role/skills
-          ul
-            li JavaScript
-            li SVG
-            li CoffeeScript
+          h1 fancy portfolio
 
-        a(href='/old-portfolio')
-          img(src='/img/portfolio-image.jpg')
+        .specs
+          .client
+            h2 Client:&nbsp;
+            h2 Bossa/McDonalds
+          p.description
+            | My old portfolio built CoffeeScript using CoffeePhysics and my custom grunt process for parsing SVG files. 
+            | Fun little diddy which showcases some of my older interactive work for clients such as IBM and UBS. Also be 
+            | sure to check out some of my old experiments.
+          .role
+            h2 role/skills
+            ul
+              li JavaScript
+              li SVG
+              li CoffeeScript
+
+        .poster
+          a(href='/old-portfolio')
+            img(src='/img/portfolio-image.jpg')
 
     section#contact
-      h1 <strike> Call Me on My Cellphone</strike> Email
+      h1 <strike> Call Me on My Cellphone</strike> Email:&nbsp;&nbsp;&nbsp;
       a dhaakon@gmail.com
+
+    footer
+      .links
+        a
+          img(src='/img/github_link.png')
+        a
+          img(src='/img/instagram_link.png')
+        a
+          img(src='/img/twitter_link.png')
+
 
 block js_scripts
   script(src="/js/build.js")

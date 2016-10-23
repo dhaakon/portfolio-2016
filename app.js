@@ -23,6 +23,8 @@ var cookieParser   = require("cookie-parser");
 var bodyParser     = require("body-parser");
 var log            = require('./modules/logs.js');
 var app            = express();
+
+app.use(favicon(__dirname + '/public/favicon.ico'));
 //var sessionConfig  =
 //{
 	//resave            : false,

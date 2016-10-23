@@ -1,0 +1,16 @@
+$f_padd: 80px;
+
+footer{
+  .links{
+    width: 400px;
+    margin: 0 auto;
+
+    a{
+      padding-left: $f_padd;
+
+      &:first-child{
+        padding-left: 0px;
+      }
+    }
+  }
+}
