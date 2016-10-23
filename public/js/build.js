@@ -26274,6 +26274,11 @@ exports.rand = rand;
 },{}],13:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Scroll = undefined;
+
 var _gsap = require('gsap');
 
 var _gsap2 = _interopRequireDefault(_gsap);
@@ -26320,6 +26325,8 @@ var Scroll = function (_EventEmitter) {
 
   return Scroll;
 }(EventEmitter);
+
+exports.Scroll = Scroll;
 
 },{"gsap":1,"iscroll":2,"scrollmagic":4,"scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap":5,"scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators":6,"underscore":7,"wolfy87-eventemitter":8}]},{},[9])
 

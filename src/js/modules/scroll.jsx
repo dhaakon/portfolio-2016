@@ -15,4 +15,4 @@ class Scroll extends EventEmitter{
   }
 }
 
-
+export { Scroll }
