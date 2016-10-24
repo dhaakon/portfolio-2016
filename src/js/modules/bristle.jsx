@@ -15,8 +15,12 @@ let Mark = {
     
     _curve *= (bristle.influence * bristle.dir);
 
+    bristle.percentComplete = bristle.heartbeat / bristle.life;
+
 
     let _x = (_curve/10) + (bristle.x + (hb/bristle.sway));
+    bristle.fill = 'rgba(' + [ 0, 0, 0, bristle.opacity * bristle.percentComplete ].join(',') + ')';
+
     
     let _r = bristle.radius;
 
@@ -43,9 +47,10 @@ class Bristle{
     this.life = Math.round( rand( 10, 500 ) );
     this.influence = rand( 20, 300 );
 
+    this.opacity = Math.min( 0.4, Math.random());
     let r = 0;// Math.round( rand( 255 ) );
 
-    this.fill = 'rgba(' + [ r, r, r, Math.min( 0.4, Math.random()) ].join(',') + ')';
+    this.fill = 'rgba(' + [ r, r, r, this.opacity ].join(',') + ')';
 
     this.radius = rand( 430, 440 );
     this.x = this.tracker.x;

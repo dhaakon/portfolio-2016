@@ -7,20 +7,11 @@ block content
   div.main
     section#splash
       canvas.sketchpad( width=800, height=720 )
-
-    section#about
-      h2 david haakon poyner
-      h3 creative technologist
-      p.description
-        //-| I'm a multidisciplinary-visionary-creative-technical, not-always-on-time
-        //-| (unless its a really important meeting or deadline) technologist? developer? artist? craftsman. 
-        //-| I'm not sure how to label myself but I do think my work speaks for itself. I've had a large hand 
-        //-| in the creation of multiple successful products for campaigns and customers so I must be doing something 
-        //-| right. Although each project presents itself with a fresh set of problems. I believe in good solid coding 
-        //-| fundamentals which allows for the quick adaptation and implementation of multiple frameworks and languages.
+      img(src='./img/logo_large.png')
+      .arrow
 
     section#work
-      h1 <span class='music'>&#x266C <b>&#x266A</b> &#x266C <b>&#x266A</b></span> work work work work work work work <span class='music'>&#x266C <b>&#x266A</b> &#x266C <b>&#x266A</b></span>
+      h1#music-title <span class='music'>&#x266C <b>&#x266A</b> &#x266C <b>&#x266A</b></span> work work work work work work work <span class='music'>&#x266C <b>&#x266A</b> &#x266C <b>&#x266A</b></span>
       .project
         .title
           h1 Meus Momentos Gigantes
@@ -50,6 +41,8 @@ block content
         .poster
           iframe( src="https://www.youtube.com/embed/w1ntpqh6piU")
 
+        .arrow
+
       .project.alt
         .title
           h1 Coke Zero Drinkable Billboard
@@ -69,6 +62,8 @@ block content
               li Node
         .poster
           iframe( src="https://www.youtube.com/embed/jdvteFAmG_k")
+
+        .arrow
 
       .project
         .title
@@ -98,6 +93,8 @@ block content
         .poster
           iframe(src="https://player.vimeo.com/video/173686291", frameborder="0", webkitallowfullscreen, mozallowfullscreen, allowfullscreen)
 
+        .arrow
+
       .project.alt
         .title
           h1 Mad Libs
@@ -125,6 +122,8 @@ block content
         .poster
           iframe( src="https://www.youtube.com/embed/KdbGtQ-vVtU")
 
+        .arrow
+
       .project
         .title
           h1 McDonald's Interactive Billboard
@@ -149,6 +148,8 @@ block content
         .poster
           iframe(src="https://player.vimeo.com/video/124232650", frameborder="0", webkitallowfullscreen, mozallowfullscreen, allowfullscreen)
 
+        .arrow
+
       .project.alt
         .title
           h1 fancy portfolio
@@ -172,9 +173,13 @@ block content
           a(href='/old-portfolio')
             img(src='/img/portfolio-image.jpg')
 
+        .arrow(style='display:none')
+
     section#contact
       h1 <strike> Call Me on My Cellphone</strike> Email:&nbsp;&nbsp;&nbsp;
       a dhaakon@gmail.com
+
+    section#about
 
     footer
       .links

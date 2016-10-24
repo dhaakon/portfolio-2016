@@ -7,6 +7,9 @@ footer{
 
     a{
       padding-left: $f_padd;
+      img{
+        width: 40px;
+      }
 
       &:first-child{
         padding-left: 0px;

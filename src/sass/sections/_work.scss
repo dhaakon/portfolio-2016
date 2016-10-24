@@ -28,11 +28,18 @@ $med_font: 20px;
   //border-left: grey 1px solid;
   //border-right: grey 1px solid;
   //
+  margin-top: 248px;
+
   .title{
     h1{
       font-size: 28px;
       background: $font_bg;
     }
+  }
+
+  #music-title{
+    //opacity: 0;
+    margin-bottom: 80px;
   }
 
   .project{
@@ -41,6 +48,23 @@ $med_font: 20px;
     min-width: 1280px;
     max-width: 1480px;
     margin: 0 auto;
+    height:640px;
+    position: relative;
+    display:blockelement;
+
+  .arrow{
+    @extend .fa;
+    @extend .fa-long-arrow-down;
+  
+    @extend .arrow-bounce;
+ 
+    color: $col;
+    //@include f_col( 0.6 ); 
+    position: absolute;
+    @include horizontal-align;
+    bottom: -25px;
+    font-size: 25px;
+  }
 
 
     width: 100%;
@@ -48,7 +72,9 @@ $med_font: 20px;
     .description{
       //width: 720px;
       margin: 0 auto;
+      opacity: 1;
       @include main-font();
+      //@include transform( translateY( 200px )
     }
 
 

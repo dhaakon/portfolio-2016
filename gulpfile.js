@@ -10,7 +10,11 @@ var sass = require('gulp-sass');
 
 gulp.task('sass', function () {
   return gulp.src('./src/sass/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
+       .pipe(sass({
+      // includePaths: require('node-bourbon').with('other/path', 'another/path') 
+      // - or - 
+      includePaths: require('node-bourbon').includePaths
+    })).pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./public/css'));
 });
 

@@ -11,6 +11,11 @@ $medium_gray: #9B9B9B;
 
 $font_bg: rgba( 90, 90, 160, 0.2 );
 $border_bottom: rgba( 90, 90, 160, 0.4 );
+$col: #d9d9e9;
+
+@mixin f_col( $opacity ){
+  color: rgba( 90, 90, 160, $opacity );
+}
 
 // Fonts
 $din: "Din Condensed";

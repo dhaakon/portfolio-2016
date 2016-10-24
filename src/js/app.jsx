@@ -20,14 +20,29 @@ class App{
     console.log(_canvas, _ctx);
 
     this.brush = new Brush( _ctx );
-    this.scroll = new Scroll();
+
+    this.setupScroll();
 
     this.loop();
   }
 
+  setupScroll(){
+    this.scroll = new Scroll();
+
+    let elToScroll = document.querySelectorAll('.project');
+    let iter = ( el, idx )=>{
+      //console.log(el);
+      //console.log(idx);
+    
+      //console.log('adding scene');
+      this.scroll.addScene( $(el) );
+    }
+
+    _.each( elToScroll, iter );
+  }
+
   loop(){
     count++
-
 
     let t = Date.now();
 
@@ -44,7 +59,6 @@ class App{
 
   draw(){
     this.brush.paint()
-
   }
 }
 

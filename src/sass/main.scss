@@ -1,10 +1,17 @@
+@import 'bourbon';
+
+@import 'includes/animations';
 @import 'includes/settings';
 @import 'includes/media-queries';
 @import 'sections/header';
+@import 'font-awesome/font-awesome';
+
 @import 'sections/work';
 @import 'sections/contact';
 @import 'sections/about';
 @import 'sections/footer';
+
+
 
 $color: white;
 
@@ -14,12 +21,33 @@ html, body{ height: 100%; }
 body{
   background: white;
   margin:0px;
-
 }
 
 #splash{
   height: 720px;
+  text-align:center;
+  img{
+    position:absolute;
+    bottom:200px;
+    @include horizontal-align();
+  }
+
+  .arrow{
+    @extend .fa;
+    @extend .fa-long-arrow-down;
+
+    @extend .arrow-bounce;
+   
+    color: black;
+    //@include f_col( 0.6 ); 
+    position: absolute;
+    @include horizontal-align;
+    bottom: 100px;
+    font-size: 25px;
+  }
+
 }
+
 
 .sketchpad{
   //width: 1000px;
@@ -28,12 +56,17 @@ body{
   margin: 0 auto;
   text-align: center;
   display: block;
-  position: relative;
+  position: absolute;
+  @include horizontal-align();
+  z-index: -1;
   min-height: 720px;
+
+
 }
 
 canvas{
   display: block;
+  
 }
 
 .main{
