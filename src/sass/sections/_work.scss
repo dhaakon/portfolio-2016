@@ -33,7 +33,7 @@ $med_font: 20px;
   .title{
     h1{
       font-size: 28px;
-      background: $font_bg;
+      //background: $font_bg;
     }
   }
 
@@ -58,7 +58,7 @@ $med_font: 20px;
   
     @extend .arrow-bounce;
  
-    color: $col;
+    color: black;
     //@include f_col( 0.6 ); 
     position: absolute;
     @include horizontal-align;
