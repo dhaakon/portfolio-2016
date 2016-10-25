@@ -20,6 +20,7 @@ class App{
     console.log(_canvas, _ctx);
 
     this.brush = new Brush( _ctx );
+    this.raf = null;
 
     this.setupScroll();
 
@@ -28,6 +29,20 @@ class App{
 
   setupScroll(){
     this.scroll = new Scroll();
+    this.scroll.addListener('bg_change', (e)=>{
+      //console.log(e);
+    });
+    this.scroll.addListener('splash_over', (e)=>{
+      $('.sketchpad').css({'transitionDelay': '0ms'});
+      cancelAnimationFrame( this.raf );
+      //console.log(e);
+    });
+
+    this.scroll.addListener('splash_start', (e)=>{
+      $('.sketchpad').css({'transitionDelay':'500ms'});
+      this.loop();
+      //console.log(e);
+    });
 
     let elToScroll = document.querySelectorAll('.project');
     let iter = ( el, idx )=>{
@@ -49,9 +64,9 @@ class App{
     if ( count < endtime ){
       this.draw();
       
-      raf = requestAnimationFrame( this.loop.bind( this ) );
+      this.raf = requestAnimationFrame( this.loop.bind( this ) );
     }else{
-      cancelAnimationFrame( raf );
+      cancelAnimationFrame( this.raf );
     }
     
     dt = t;

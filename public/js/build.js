@@ -25969,6 +25969,7 @@ var App = function () {
     console.log(_canvas, _ctx);
 
     this.brush = new _brush.Brush(_ctx);
+    this.raf = null;
 
     this.setupScroll();
 
@@ -25981,6 +25982,20 @@ var App = function () {
       var _this = this;
 
       this.scroll = new _scroll.Scroll();
+      this.scroll.addListener('bg_change', function (e) {
+        //console.log(e);
+      });
+      this.scroll.addListener('splash_over', function (e) {
+        $('.sketchpad').css({ 'transitionDelay': '0ms' });
+        cancelAnimationFrame(_this.raf);
+        //console.log(e);
+      });
+
+      this.scroll.addListener('splash_start', function (e) {
+        $('.sketchpad').css({ 'transitionDelay': '500ms' });
+        _this.loop();
+        //console.log(e);
+      });
 
       var elToScroll = document.querySelectorAll('.project');
       var iter = function iter(el, idx) {
@@ -26003,9 +26018,9 @@ var App = function () {
       if (count < endtime) {
         this.draw();
 
-        raf = requestAnimationFrame(this.loop.bind(this));
+        this.raf = requestAnimationFrame(this.loop.bind(this));
       } else {
-        cancelAnimationFrame(raf);
+        cancelAnimationFrame(this.raf);
       }
 
       dt = t;
@@ -26358,6 +26373,10 @@ var Scroll = function (_EventEmitter) {
 
     var _this = _possibleConstructorReturn(this, (Scroll.__proto__ || Object.getPrototypeOf(Scroll)).call(this));
 
+    _this._c = 0;
+    _this._colors = ['rgb(230,210,220)', 'rgb(250,200,160)', 'rgb( 180, 240, 220)', 'rgb(240,230,200)', 'rgb(230,160,150)', 'rgb( 220, 250, 230)'];
+
+    //this._colors = ['red', 'green', 'blue'];
     _this.setup();
     _this.addCustomTweens();
     return _this;
@@ -26371,11 +26390,13 @@ var Scroll = function (_EventEmitter) {
   }, {
     key: 'addCustomTweens',
     value: function addCustomTweens() {
+      var _this2 = this;
+
       var musicTitle = $('#music-title');
       var _timeline = new TimelineMax();
       var _dur = 100;
 
-      var a1 = TweenMax.from(musicTitle[0], _dur, { css: { opacity: 0, y: 100 } });
+      var a1 = TweenMax.from(musicTitle[0], _dur, { css: { opacity: 0, y: -20 } });
 
       var update = function update() {};
 
@@ -26386,10 +26407,44 @@ var Scroll = function (_EventEmitter) {
         duration: _dur,
         offset: 0
       }).setTween(_timeline).on('update', update).addTo(this.controller);
+
+      var _sketchPad = $('.sketchpad');
+      var arrow = $('#splash .arrow');
+
+      var mainEnd = function mainEnd(e) {
+        if (e.scrollDirection === "FORWARD" && e.state === "AFTER") {
+          _sketchPad.css('opacity', 0);
+          _this2.emitEvent('splash_over');
+        } else {
+          _sketchPad.css('opacity', 1);
+
+          _this2.emitEvent('splash_start');
+        }
+      };
+
+      var mainStart = function mainStart(e) {
+        $(document.body).css({ 'background': 'white' });
+        if (e.scrollDirection === "FORWARD" && e.state === "AFTER") {
+          _sketchPad.css('opacity', 0);
+          _this2.emitEvent('splash_over');
+
+          arrow.hide();
+        } else if (e.scrollDirection === "REVERSE" && e.state === "DURING") {
+          arrow.show();
+        }
+      };
+
+      var _scene = new ScrollMagic.Scene({
+        triggerElement: musicTitle[0],
+        duration: _dur,
+        offset: 0
+      }).on('end', mainEnd).on('start', mainStart).addTo(this.controller);
     }
   }, {
     key: 'addScene',
     value: function addScene(project) {
+      var _this3 = this;
+
       var element = project;
 
       var _timeline = new TimelineMax();
@@ -26405,25 +26460,47 @@ var Scroll = function (_EventEmitter) {
       var _sway = 80;
       var _altPush = element.hasClass('alt') ? -_sway : _sway;
 
-      var a1 = TweenMax.from(description[0], _dur, { css: { opacity: 0, y: 100 } });
-      var a2 = TweenMax.from(client[0], _dur, { css: { opacity: 0, y: -50 } });
-      var a3 = TweenMax.from(role[0], _dur + 40, { css: { opacity: 0, y: 140 }, delay: 0.3 });
-      var a4 = TweenMax.from(roleHeading[0], _dur + 40, { css: { opacity: 0, y: -50 }, delay: 0.3 });
+      var a1 = TweenMax.from(description[0], _dur, { css: { opacity: 1, y: 100 } });
+      var a2 = TweenMax.from(client[0], _dur, { css: { opacity: 1, y: -50 } });
+      var a3 = TweenMax.from(role[0], _dur + 40, { css: { opacity: 1, y: 140 }, delay: 0.3 });
+      var a4 = TweenMax.from(roleHeading[0], _dur + 40, { css: { opacity: 1, y: -50 }, delay: 0.3 });
       var a5 = TweenMax.from(poster[0], _dur - 200, { css: { opacity: 0, y: 20, x: _altPush } });
-      var a6 = TweenMax.from(title[0], _dur, { css: { opacity: 0, y: -50 } });
-      var a7 = TweenMax.from(arrow[0], _dur - 50, { css: { opacity: -3, y: 150 } });
+      var a6 = TweenMax.from(title[0], _dur, { css: { opacity: 1, y: -50 } });
+      var a7 = TweenMax.from(arrow[0], _dur, { css: { opacity: -3, y: 150 } });
+      var a8 = TweenMax.from(element[0], _dur, { css: { color: 'lightGray' } });
 
-      _timeline.add([a1, a2, a3, a4, a5, a6, a7]);
+      _timeline.add([a1, a2, a3, a4, a5, a6, a7, a8]);
 
       var _skills = role.find('ul').children;
 
       var update = function update(e) {};
+      var start = function start(e) {
+        _this3._c = _this3._c < _this3._colors.length - 1 ? _this3._c + 1 : 0;
+        //this._c = (this._c < this._colors.length - 1) ? this._c + 1: 0;
+
+        if (e.scrollDirection === "FORWARD") {
+          arrow.show();
+          $(document.body).css({ 'background': _this3._colors[_this3._c] });
+        }
+      };
+      var end = function end(e) {
+        _this3._c = _this3._c < _this3._colors.length - 1 ? _this3._c + 1 : 0;
+
+        if (e.scrollDirection === "FORWARD" && e.state === "AFTER") {
+          //$('.sketchpad').css({ 'background': this._colors[this._c] });
+          _this3.emitEvent('bg_change', [_this3._colors[_this3._c]]);
+          arrow.hide();
+        } else if (e.scrollDirection === "REVERSE" && e.state === "DURING") {
+          $(document.body).css({ 'background': _this3._colors[_this3._c] });
+          arrow.show();
+        }
+      };
 
       var _scene = new ScrollMagic.Scene({
         triggerElement: element[0],
         duration: _dur,
-        offset: 0
-      }).setTween(_timeline).on('update', update).addTo(this.controller);
+        offset: -60
+      }).setTween(_timeline).on('update', update).on('end', end).on('start', start).addTo(this.controller);
 
       //_timeline.play();
 
