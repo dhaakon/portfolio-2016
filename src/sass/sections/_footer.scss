@@ -1,14 +1,46 @@
-$f_padd: 80px;
+$f_padd: 40px;
+
+.icon-style{
+  color: black;
+  display: block;
+  font-size: 40px;
+}
 
 footer{
   .links{
     width: 400px;
     margin: 0 auto;
+    margin-bottom: 50px;
 
     a{
       padding-left: $f_padd;
-      img{
-        width: 40px;
+      margin-right: 0px;
+
+      width: 40px;
+      display: inline-block;
+      
+      &.github{
+        @extend .icon-style;
+        @extend .fa-github;
+        @extend .fa;
+        display: inline-block;
+      
+      }
+
+      &.instagram{
+        @extend .icon-style;
+        @extend .fa-instagram;
+        @extend .fa;
+        display: inline-block;
+      
+      }
+
+      &.twitter{
+        @extend .icon-style;
+        @extend .fa-twitter;
+        @extend .fa;
+        display: inline-block;
+      
       }
 
       &:first-child{

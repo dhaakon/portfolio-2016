@@ -34,8 +34,10 @@ $med_font: 20px;
   .title{
     h1{
       font-size: 28px;
+      font-family: "Fjalla One"
       text-transform: uppercase;
       letter-spacing: 1.5px;
+
       //background: $font_bg;
     }
   }
@@ -55,6 +57,9 @@ $med_font: 20px;
     position: relative;
     display:blockelement;
     color: darkBlue;
+    iframe{
+      border: 0px;
+    }
 
   .arrow{
     @extend .fa;

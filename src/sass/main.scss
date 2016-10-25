@@ -11,10 +11,7 @@
 @import 'sections/about';
 @import 'sections/footer';
 
-
-
 $color: white;
-
 
 html, body{ height: 100%; }
 
@@ -27,28 +24,36 @@ body{
 #splash{
   height: 720px;
   text-align:center;
+  position: relative;
+  min-width: 1280px;
+  max-width: 1440px;
+  display: block;
+
+  margin: 0 auto;
+  @include ipad{
+    //@include transform( scale( 0.5) );
+  }
+
   img{
-    position:absolute;
-    bottom:200px;
+    position: absolute;
     //@include transition( 'background 3s' );
     @include transition( 300ms all );
     @include horizontal-align();
+    bottom: 0px;
   }
 
   .arrow{
     @extend .fa;
     @extend .fa-long-arrow-down;
-
     @extend .arrow-bounce;
    
     color: black;
     //@include f_col( 0.6 ); 
     position: absolute;
     @include horizontal-align;
-    bottom: 100px;
+    bottom: -80px;
     font-size: 25px;
   }
-
 }
 
 
@@ -60,22 +65,21 @@ body{
   text-align: center;
   display: block;
   position: absolute;
-  @include horizontal-align();
   z-index: -1;
   min-height: 720px;
+
   @include transition( 300ms all );
   @include transition-delay( 0ms );
-
+  @include horizontal-align();
 }
 
 canvas{
   display: block;
-  
 }
 
 .main{
   min-height: 100px;
-  min-width: 1480px;
+  min-width: 1440px;
   margin: 0 auto;
 }
 

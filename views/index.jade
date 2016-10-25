@@ -1,7 +1,7 @@
 extends layout
 
 block custom_styles
-  link(href="https://fonts.googleapis.com/css?family=Dosis|Rubik|Signika|Source+Sans+Pro", rel="stylesheet")
+  link(href="https://fonts.googleapis.com/css?family=Dosis|Rubik|Signika|Source+Sans+Pro|Fjalla+One", rel="stylesheet")
 
 block content
   div.main
@@ -39,7 +39,7 @@ block content
               li ECMA 6
             
         .poster
-          //-iframe( src="https://www.youtube.com/embed/w1ntpqh6piU")
+          iframe( src="https://www.youtube.com/embed/w1ntpqh6piU")
 
         .arrow
 
@@ -61,7 +61,7 @@ block content
               li Backend Developer
               li Node
         .poster
-          //-iframe( src="https://www.youtube.com/embed/jdvteFAmG_k")
+          iframe( src="https://www.youtube.com/embed/jdvteFAmG_k")
 
         .arrow
 
@@ -91,7 +91,7 @@ block content
               li Node
               li Backbone
         .poster
-          //-iframe(src="https://player.vimeo.com/video/173686291", frameborder="0", webkitallowfullscreen, mozallowfullscreen, allowfullscreen)
+          iframe(src="https://player.vimeo.com/video/173686291", frameborder="0", webkitallowfullscreen, mozallowfullscreen, allowfullscreen)
 
         .arrow
 
@@ -120,7 +120,7 @@ block content
               li iOS Development
               li Titanium
         .poster
-          //-iframe( src="https://www.youtube.com/embed/KdbGtQ-vVtU")
+          iframe( src="https://www.youtube.com/embed/KdbGtQ-vVtU")
 
         .arrow
 
@@ -146,7 +146,7 @@ block content
               li WebSockets
 
         .poster
-          //-iframe(src="https://player.vimeo.com/video/124232650", frameborder="0", webkitallowfullscreen, mozallowfullscreen, allowfullscreen)
+          iframe(src="https://player.vimeo.com/video/124232650", frameborder="0", webkitallowfullscreen, mozallowfullscreen, allowfullscreen)
 
         .arrow
 
@@ -183,12 +183,12 @@ block content
 
     footer
       .links
-        a
-          img(src='/img/github_link.png')
-        a
-          img(src='/img/instagram_link.png')
-        a
-          img(src='/img/twitter_link.png')
+        a.github
+          //-img(src='/img/github_link.png')
+        a.instagram
+          //-img(src='/img/instagram_link.png')
+        a.twitter
+          //-img(src='/img/twitter_link.png')
 
 
 block js_scripts

@@ -128,7 +128,7 @@
   font-weight: normal;
   font-style: normal; }
 
-.fa, #work .project .arrow, #splash .arrow {
+.fa, #work .project .arrow, footer .links a.github, footer .links a.instagram, footer .links a.twitter, #splash .arrow {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -187,10 +187,10 @@
 .fa-pull-right {
   float: right; }
 
-.fa.fa-pull-left, #work .project .fa-pull-left.arrow, #splash .fa-pull-left.arrow {
+.fa.fa-pull-left, #work .project .fa-pull-left.arrow, footer .links a.fa-pull-left.github, footer .links a.fa-pull-left.instagram, footer .links a.fa-pull-left.twitter, #splash .fa-pull-left.arrow {
   margin-right: .3em; }
 
-.fa.fa-pull-right, #work .project .fa-pull-right.arrow, #splash .fa-pull-right.arrow {
+.fa.fa-pull-right, #work .project .fa-pull-right.arrow, footer .links a.fa-pull-right.github, footer .links a.fa-pull-right.instagram, footer .links a.fa-pull-right.twitter, #splash .fa-pull-right.arrow {
   margin-left: .3em; }
 
 /* Deprecated as of 4.4.0 */
@@ -200,10 +200,10 @@
 .pull-left {
   float: left; }
 
-.fa.pull-left, #work .project .pull-left.arrow, #splash .pull-left.arrow {
+.fa.pull-left, #work .project .pull-left.arrow, footer .links a.pull-left.github, footer .links a.pull-left.instagram, footer .links a.pull-left.twitter, #splash .pull-left.arrow {
   margin-right: .3em; }
 
-.fa.pull-right, #work .project .pull-right.arrow, #splash .pull-right.arrow {
+.fa.pull-right, #work .project .pull-right.arrow, footer .links a.pull-right.github, footer .links a.pull-right.instagram, footer .links a.pull-right.twitter, #splash .pull-right.arrow {
   margin-left: .3em; }
 
 .fa-spin {
@@ -736,14 +736,14 @@
 .fa-phone-square:before {
   content: ""; }
 
-.fa-twitter:before {
+.fa-twitter:before, footer .links a.twitter:before {
   content: ""; }
 
 .fa-facebook-f:before,
 .fa-facebook:before {
   content: ""; }
 
-.fa-github:before {
+.fa-github:before, footer .links a.github:before {
   content: ""; }
 
 .fa-unlock:before {
@@ -1327,7 +1327,7 @@
 .fa-stack-overflow:before {
   content: ""; }
 
-.fa-instagram:before {
+.fa-instagram:before, footer .links a.instagram:before {
   content: ""; }
 
 .fa-flickr:before {
@@ -2346,6 +2346,9 @@
   height: 100%;
   display: block; }
 
+#work .project iframe {
+  border: 0px; }
+
 #work .project .arrow {
   color: lightGray;
   position: absolute;
@@ -2446,15 +2449,30 @@
 #about h2, #about h3 {
   margin: 0px; }
 
+.icon-style, footer .links a.github, footer .links a.instagram, footer .links a.twitter {
+  color: black;
+  display: block;
+  font-size: 40px; }
+
 footer .links {
   width: 400px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  margin-bottom: 50px; }
 
 footer .links a {
-  padding-left: 80px; }
+  padding-left: 40px;
+  margin-right: 0px;
+  width: 40px;
+  display: inline-block; }
 
-footer .links a img {
-  width: 40px; }
+footer .links a.github {
+  display: inline-block; }
+
+footer .links a.instagram {
+  display: inline-block; }
+
+footer .links a.twitter {
+  display: inline-block; }
 
 footer .links a:first-child {
   padding-left: 0px; }
@@ -2471,18 +2489,23 @@ body {
 
 #splash {
   height: 720px;
-  text-align: center; }
+  text-align: center;
+  position: relative;
+  min-width: 1280px;
+  max-width: 1440px;
+  display: block;
+  margin: 0 auto; }
 
 #splash img {
   position: absolute;
-  bottom: 200px;
   -webkit-transition: 300ms all;
   -moz-transition: 300ms all;
   transition: 300ms all;
   left: 50%;
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
-  transform: translateX(-50%); }
+  transform: translateX(-50%);
+  bottom: 0px; }
 
 #splash .arrow {
   color: black;
@@ -2491,7 +2514,7 @@ body {
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  bottom: 100px;
+  bottom: -80px;
   font-size: 25px; }
 
 .sketchpad {
@@ -2500,10 +2523,6 @@ body {
   text-align: center;
   display: block;
   position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
   z-index: -1;
   min-height: 720px;
   -webkit-transition: 300ms all;
@@ -2511,14 +2530,18 @@ body {
   transition: 300ms all;
   -webkit-transition-delay: 0ms;
   -moz-transition-delay: 0ms;
-  transition-delay: 0ms; }
+  transition-delay: 0ms;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%); }
 
 canvas {
   display: block; }
 
 .main {
   min-height: 100px;
-  min-width: 1480px;
+  min-width: 1440px;
   margin: 0 auto; }
 
 .wrapper, .main {
