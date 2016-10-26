@@ -128,7 +128,7 @@
   font-weight: normal;
   font-style: normal; }
 
-.fa, #work .project .arrow, footer .links a.github, footer .links a.instagram, footer .links a.twitter, #splash .arrow {
+.fa, #work .project .arrow, #work .project .poster button i, footer .links a.github, footer .links a.instagram, footer .links a.twitter, #splash .arrow {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -187,10 +187,10 @@
 .fa-pull-right {
   float: right; }
 
-.fa.fa-pull-left, #work .project .fa-pull-left.arrow, footer .links a.fa-pull-left.github, footer .links a.fa-pull-left.instagram, footer .links a.fa-pull-left.twitter, #splash .fa-pull-left.arrow {
+.fa.fa-pull-left, #work .project .fa-pull-left.arrow, #work .project .poster button i.fa-pull-left, footer .links a.fa-pull-left.github, footer .links a.fa-pull-left.instagram, footer .links a.fa-pull-left.twitter, #splash .fa-pull-left.arrow {
   margin-right: .3em; }
 
-.fa.fa-pull-right, #work .project .fa-pull-right.arrow, footer .links a.fa-pull-right.github, footer .links a.fa-pull-right.instagram, footer .links a.fa-pull-right.twitter, #splash .fa-pull-right.arrow {
+.fa.fa-pull-right, #work .project .fa-pull-right.arrow, #work .project .poster button i.fa-pull-right, footer .links a.fa-pull-right.github, footer .links a.fa-pull-right.instagram, footer .links a.fa-pull-right.twitter, #splash .fa-pull-right.arrow {
   margin-left: .3em; }
 
 /* Deprecated as of 4.4.0 */
@@ -200,10 +200,10 @@
 .pull-left {
   float: left; }
 
-.fa.pull-left, #work .project .pull-left.arrow, footer .links a.pull-left.github, footer .links a.pull-left.instagram, footer .links a.pull-left.twitter, #splash .pull-left.arrow {
+.fa.pull-left, #work .project .pull-left.arrow, #work .project .poster button i.pull-left, footer .links a.pull-left.github, footer .links a.pull-left.instagram, footer .links a.pull-left.twitter, #splash .pull-left.arrow {
   margin-right: .3em; }
 
-.fa.pull-right, #work .project .pull-right.arrow, footer .links a.pull-right.github, footer .links a.pull-right.instagram, footer .links a.pull-right.twitter, #splash .pull-right.arrow {
+.fa.pull-right, #work .project .pull-right.arrow, #work .project .poster button i.pull-right, footer .links a.pull-right.github, footer .links a.pull-right.instagram, footer .links a.pull-right.twitter, #splash .pull-right.arrow {
   margin-left: .3em; }
 
 .fa-spin {
@@ -513,7 +513,7 @@
 .fa-backward:before {
   content: ""; }
 
-.fa-play:before {
+.fa-play:before, #work .project .poster button i:before {
   content: ""; }
 
 .fa-pause:before {
@@ -2406,17 +2406,13 @@
   margin: 0 auto;
   opacity: 1;
   font-family: "News Cycle";
-  font-size: 16px;
-  line-height: 22px; }
+  font-size: 14px;
+  line-height: 18px; }
 
 @media only screen and (max-width: 767px) {
   #work .project .description {
     font-size: 12px;
     line-height: 14px; } }
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 4440px) {
-  #work .project .description {
-    font-size: 16px; } }
 
 #work .project h1 {
   margin: 0px;
@@ -2492,7 +2488,7 @@
   float: right;
   width: 70%;
   max-width: 1024px;
-  margin: 50px auto 0 auto;
+  margin: 88px auto 0 auto;
   display: inline-block;
   height: 480px;
   display: block;
@@ -2500,12 +2496,45 @@
   -moz-transform: translateZ(1px);
   -ms-transform: translateZ(1px);
   -o-transform: translateZ(1px);
-  transform: translateZ(1px); }
+  transform: translateZ(1px);
+  color: #485982;
+  cursor: pointer;
+  border: 0px; }
 
 @media only screen and (max-width: 1024px) {
   #work .project .poster {
     width: 100%;
     float: none; } }
+
+#work .project .poster:hover {
+  color: white; }
+
+#work .project .poster button {
+  position: absolute;
+  z-index: 10;
+  border: 0px;
+  background: none;
+  top: 34%;
+  color: inherit;
+  left: 44%;
+  cursor: pointer; }
+
+@media only screen and (max-width: 767px) {
+  #work .project .poster button {
+    top: 30%; } }
+
+@media only screen and (max-width: 1024px) {
+  #work .project .poster button {
+    top: 26%; } }
+
+#work .project .poster button i {
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  color: inherit;
+  font-size: 100px; }
+
+@media only screen and (max-width: 767px) {
+  #work .project .poster button i {
+    font-size: 34px; } }
 
 @media only screen and (max-width: 767px) {
   #work .project .poster {
@@ -2559,8 +2588,8 @@
 
 #work .project .role ul li {
   font-family: "News Cycle";
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 18px;
   font-size: 13px;
   list-style: bullet;
   margin-left: 0px;
@@ -2570,10 +2599,6 @@
   #work .project .role ul li {
     font-size: 12px;
     line-height: 14px; } }
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 4440px) {
-  #work .project .role ul li {
-    font-size: 16px; } }
 
 @media only screen and (max-width: 767px) {
   #work .project .role ul li {
