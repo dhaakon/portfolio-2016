@@ -1,16 +1,16 @@
-$f_padd: 40px;
+$f_padd: 100px;
 
 .icon-style{
   color: black;
   display: block;
-  font-size: 40px;
+  font-size: 60px;
 }
 
 footer{
   .links{
     width: 400px;
     margin: 0 auto;
-    margin-bottom: 50px;
+    margin-bottom: 200px;
 
     a{
       padding-left: $f_padd;
@@ -18,13 +18,14 @@ footer{
 
       width: 40px;
       display: inline-block;
+      color: $blue;
       
       &.github{
         @extend .icon-style;
         @extend .fa-github;
         @extend .fa;
         display: inline-block;
-      
+        color: $blue;
       }
 
       &.instagram{
@@ -32,7 +33,7 @@ footer{
         @extend .fa-instagram;
         @extend .fa;
         display: inline-block;
-      
+        color: $blue;
       }
 
       &.twitter{
@@ -40,7 +41,7 @@ footer{
         @extend .fa-twitter;
         @extend .fa;
         display: inline-block;
-      
+        color: $blue;
       }
 
       &:first-child{

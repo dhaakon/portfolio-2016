@@ -18,7 +18,7 @@ html, body{ height: 100%; }
 body{
   background: white;
   margin:0px;
-  @include transition( 800ms all );
+  @include transition( 1s all );
 }
 
 #splash{
@@ -28,6 +28,18 @@ body{
   min-width: 1280px;
   max-width: 1440px;
   display: block;
+  @include viewport(md){
+    min-width: 768px;
+    max-width: 1024px; 
+  }
+
+  @include viewport(sm){
+    min-width: 320px;
+    max-width: 480px;
+    width: 100%;
+
+    height: 480px
+  }
 
   margin: 0 auto;
   @include ipad{
@@ -66,7 +78,11 @@ body{
   display: block;
   position: absolute;
   z-index: -1;
-  min-height: 720px;
+  //min-height: 720px;
+  @include viewport(sm){
+    width: 100%;
+    height: 480px;
+  }
 
   @include transition( 300ms all );
   @include transition-delay( 0ms );
@@ -79,8 +95,9 @@ canvas{
 
 .main{
   min-height: 100px;
-  min-width: 1440px;
+  //min-width: 1440px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .wrapper, .main{

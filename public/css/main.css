@@ -2316,35 +2316,74 @@
   display: inline-block;
   padding-bottom: 20px; }
 
+.textshadow, #work, #work .title h1, #work .project .arrow, #work .project .description {
+  text-shadow: 0px 0px 0px lightGray; }
+
 #work {
   text-align: center;
-  margin-top: 248px;
-  color: #e6e6e6; }
+  -webkit-transform: translateZ(1px);
+  -moz-transform: translateZ(1px);
+  -ms-transform: translateZ(1px);
+  -o-transform: translateZ(1px);
+  transform: translateZ(1px);
+  margin-top: 350px;
+  color: #e6e6e6;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto; }
+
+@media only screen and (max-width: 767px) {
+  #work {
+    max-width: 480px;
+    min-width: 320px; } }
+
+#work h2 {
+  font-family: "Fjalla One"; }
+
+@media only screen and (max-width: 767px) {
+  #work h2 {
+    font-size: 12px; } }
 
 #work .title h1 {
-  font-size: 28px;
+  font-size: 38px;
+  font-family: "Fjalla One";
   text-transform: uppercase;
-  letter-spacing: 1.5px; }
+  letter-spacing: 0px; }
+
+@media only screen and (max-width: 767px) {
+  #work .title h1 {
+    font-size: 20px; } }
 
 #work #music-title {
-  margin-bottom: 80px; }
+  margin-bottom: 80px;
+  margin-top: 200px; }
+
+@media only screen and (max-width: 767px) {
+  #work #music-title {
+    font-size: 12px; } }
 
 #work .project {
   min-height: 640px;
   height: 100%;
-  min-width: 1280px;
-  max-width: 1480px;
-  margin: 0 auto;
+  margin: 300px auto 0 auto;
   height: 640px;
   position: relative;
   display: blockelement;
-  color: darkBlue;
-  width: 100%;
-  margin-bottom: 80px;
+  color: #485982;
+  width: 96%;
   text-align: center;
-  width: 100%;
-  height: 100%;
-  display: block; }
+  display: block;
+  margin-bottom: 80px; }
+
+@media only screen and (max-width: 1024px) {
+  #work .project {
+    height: 100%; } }
+
+@media only screen and (max-width: 767px) {
+  #work .project {
+    width: 100%;
+    margin: 120px auto 0 auto;
+    height: 100%; } }
 
 #work .project iframe {
   border: 0px; }
@@ -2359,12 +2398,25 @@
   bottom: -25px;
   font-size: 25px; }
 
+@media only screen and (max-width: 767px) {
+  #work .project .arrow {
+    bottom: 30px; } }
+
 #work .project .description {
   margin: 0 auto;
   opacity: 1;
-  font-family: "Source Sans Pro";
+  font-family: "News Cycle";
   font-size: 16px;
-  font-weight: bold; }
+  line-height: 22px; }
+
+@media only screen and (max-width: 767px) {
+  #work .project .description {
+    font-size: 12px;
+    line-height: 14px; } }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 4440px) {
+  #work .project .description {
+    font-size: 16px; } }
 
 #work .project h1 {
   margin: 0px;
@@ -2372,75 +2424,171 @@
   line-height: 62px; }
 
 #work .project.alt {
-  color: darkRed; }
+  color: #485982; }
 
 #work .project.alt .specs {
+  width: 27%;
   float: right; }
+
+@media only screen and (max-width: 1024px) {
+  #work .project.alt .specs {
+    float: none;
+    width: 100%; } }
+
+@media only screen and (max-width: 767px) {
+  #work .project.alt .specs {
+    float: none;
+    width: 98%;
+    display: block;
+    padding-left: 6px; } }
 
 #work .project.alt .poster {
   float: left; }
+
+@media only screen and (max-width: 1024px) {
+  #work .project.alt .poster {
+    width: 100%;
+    float: none; } }
+
+@media only screen and (max-width: 767px) {
+  #work .project.alt .poster {
+    float: none; } }
 
 #work .project .specs, #work .project .poster {
   margin-top: 50px; }
 
 #work .project .specs {
   float: left;
-  width: 20%;
+  width: 27%;
   display: inline-block;
   text-align: left;
-  padding-left: 20px;
-  min-width: 400px; }
+  padding-left: 20px; }
+
+@media only screen and (max-width: 1024px) {
+  #work .project .specs {
+    width: 100%;
+    float: none; } }
+
+@media only screen and (max-width: 767px) {
+  #work .project .specs {
+    float: none;
+    width: 98%;
+    display: block;
+    padding-left: 6px;
+    margin-top: 12px; } }
 
 #work .project .client h2 {
   display: inline-block;
   font-size: 20px; }
 
+@media only screen and (max-width: 767px) {
+  #work .project .client h2 {
+    font-size: 13px; } }
+
+#work .project .client h2:first-child {
+  color: lightGray; }
+
 #work .project .poster {
   float: right;
-  width: 1024px;
+  width: 70%;
+  max-width: 1024px;
   margin: 50px auto 0 auto;
   display: inline-block;
-  background: lightGray;
   height: 480px;
-  display: block; }
+  display: block;
+  -webkit-transform: translateZ(1px);
+  -moz-transform: translateZ(1px);
+  -ms-transform: translateZ(1px);
+  -o-transform: translateZ(1px);
+  transform: translateZ(1px); }
+
+@media only screen and (max-width: 1024px) {
+  #work .project .poster {
+    width: 100%;
+    float: none; } }
+
+@media only screen and (max-width: 767px) {
+  #work .project .poster {
+    float: none;
+    width: 100%;
+    display: block;
+    height: 240px; } }
+
+#work .project .poster iframe {
+  width: 100%; }
 
 #work .project .poster img {
-  width: 1024px; }
+  width: 100%; }
 
 #work .project iframe {
   min-height: 480px;
   width: 100%;
-  height: 100%;
-  max-height: 720px;
-  max-width: 1024px; }
+  height: 100%; }
+
+@media only screen and (max-width: 767px) {
+  #work .project iframe {
+    float: none;
+    width: 100%;
+    display: block;
+    min-height: 240px; } }
 
 #work .project .role {
   margin-top: 50px; }
 
+@media only screen and (max-width: 767px) {
+  #work .project .role {
+    margin-top: 12px; } }
+
 #work .project .role h2 {
-  font-size: 20px; }
+  font-size: 20px;
+  color: lightGray; }
+
+@media only screen and (max-width: 767px) {
+  #work .project .role h2 {
+    font-size: 13px;
+    margin-bottom: 4px;
+    margin-top: 4px; } }
 
 #work .project .role ul {
   margin-left: 20px;
   padding-left: 0px; }
 
+@media only screen and (max-width: 767px) {
+  #work .project .role ul {
+    margin-top: 2px; } }
+
 #work .project .role ul li {
-  font-family: "Source Sans Pro";
+  font-family: "News Cycle";
   font-size: 16px;
-  font-weight: bold;
+  line-height: 22px;
   font-size: 13px;
   list-style: bullet;
   margin-left: 0px;
   padding-left: 0px; }
 
+@media only screen and (max-width: 767px) {
+  #work .project .role ul li {
+    font-size: 12px;
+    line-height: 14px; } }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 4440px) {
+  #work .project .role ul li {
+    font-size: 16px; } }
+
+@media only screen and (max-width: 767px) {
+  #work .project .role ul li {
+    margin-top: 0px; } }
+
 #contact {
-  width: 1440px;
   margin: 0 auto;
+  text-align: center;
+  font-family: "Fjalla One";
+  color: #485982;
   height: 300px; }
 
 #contact a, #contact h1 {
   display: inline-block;
-  font-size: 18px; }
+  font-size: 32px; }
 
 #about {
   text-align: center;
@@ -2452,27 +2600,31 @@
 .icon-style, footer .links a.github, footer .links a.instagram, footer .links a.twitter {
   color: black;
   display: block;
-  font-size: 40px; }
+  font-size: 60px; }
 
 footer .links {
   width: 400px;
   margin: 0 auto;
-  margin-bottom: 50px; }
+  margin-bottom: 200px; }
 
 footer .links a {
-  padding-left: 40px;
+  padding-left: 100px;
   margin-right: 0px;
   width: 40px;
-  display: inline-block; }
+  display: inline-block;
+  color: #485982; }
 
 footer .links a.github {
-  display: inline-block; }
+  display: inline-block;
+  color: #485982; }
 
 footer .links a.instagram {
-  display: inline-block; }
+  display: inline-block;
+  color: #485982; }
 
 footer .links a.twitter {
-  display: inline-block; }
+  display: inline-block;
+  color: #485982; }
 
 footer .links a:first-child {
   padding-left: 0px; }
@@ -2483,9 +2635,9 @@ html, body {
 body {
   background: white;
   margin: 0px;
-  -webkit-transition: 800ms all;
-  -moz-transition: 800ms all;
-  transition: 800ms all; }
+  -webkit-transition: 1s all;
+  -moz-transition: 1s all;
+  transition: 1s all; }
 
 #splash {
   height: 720px;
@@ -2495,6 +2647,18 @@ body {
   max-width: 1440px;
   display: block;
   margin: 0 auto; }
+
+@media only screen and (max-width: 1024px) {
+  #splash {
+    min-width: 768px;
+    max-width: 1024px; } }
+
+@media only screen and (max-width: 767px) {
+  #splash {
+    min-width: 320px;
+    max-width: 480px;
+    width: 100%;
+    height: 480px; } }
 
 #splash img {
   position: absolute;
@@ -2524,7 +2688,6 @@ body {
   display: block;
   position: absolute;
   z-index: -1;
-  min-height: 720px;
   -webkit-transition: 300ms all;
   -moz-transition: 300ms all;
   transition: 300ms all;
@@ -2536,13 +2699,18 @@ body {
   -ms-transform: translateX(-50%);
   transform: translateX(-50%); }
 
+@media only screen and (max-width: 767px) {
+  .sketchpad {
+    width: 100%;
+    height: 480px; } }
+
 canvas {
   display: block; }
 
 .main {
   min-height: 100px;
-  min-width: 1440px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  width: 100%; }
 
 .wrapper, .main {
   min-height: 1%;

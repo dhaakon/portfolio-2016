@@ -91,6 +91,8 @@ class Scroll extends EventEmitter{
     var role = element.find('.role');
     var description = element.find('.description');
     var client = element.find('.client');
+    var clientTitle = client.children();
+
     var poster = element.find('.poster');
     var title = element.find('.title');
     var arrow = element.find('.arrow');
@@ -99,16 +101,19 @@ class Scroll extends EventEmitter{
     let _sway = 80;
     var _altPush = (element.hasClass('alt')) ? -_sway : _sway;
 
-    let a1 = TweenMax.from( description[0], _dur, { css:{ opacity:1, y: 100 } });
-    let a2 = TweenMax.from( client[0], _dur, { css:{ opacity:1, y: -50 } });
-    let a3 = TweenMax.from( role[0], _dur + 40, { css:{ opacity:1, y: 140 }, delay: 0.3 });
-    let a4 = TweenMax.from( roleHeading[0], _dur + 40, { css:{ opacity:1, y: -50 }, delay: 0.3 });
-    let a5 = TweenMax.from( poster[0], _dur - 200, { css:{ opacity:0, y: 20, x: _altPush  } });
-    let a6 = TweenMax.from( title[0], _dur, { css:{ opacity:1, y: -50 } });
-    let a7 = TweenMax.from( arrow[0], _dur, { css:{ opacity:-3, y: 150 } });
-    let a8 = TweenMax.from( element[0], _dur, { css:{ color: 'lightGray' } });
+    let a1 = TweenMax.from( description[0], _dur, { css:{ opacity:1, y: 100, z:1 } });
+    let a2 = TweenMax.from( client[0], _dur, { css:{ opacity:1, y: -50, z:1 } });
+    let a3 = TweenMax.from( role[0], _dur + 40, { css:{ opacity:1, y: 140, z:1 }, delay: 0.3 });
+    let a4 = TweenMax.from( roleHeading[0], _dur + 40, { css:{ opacity:1, y: -50, z:1 }, delay: 0.3 });
+    let a5 = TweenMax.from( poster[0], _dur - 200, { css:{ opacity:0, y: 20, x: _altPush, z:1  } });
+    let a6 = TweenMax.from( title[0], _dur, { css:{ opacity:1, y: -50, z:1, textShadow:' 0px 10px 0px lightGray' } });
+    let a11 = TweenMax.from( arrow[0], _dur, { css:{ opacity:-3, y: 150, z:1 } });
+    let a7 = TweenMax.to( arrow[0], _dur, { css:{ color:'#485982' } });
+    let a8 = TweenMax.from( element[0], _dur, { css:{ color: 'lightGray', z:1 } });
+    let a9 = TweenMax.to( clientTitle[0], _dur, { css:{ color: '#4867b0' } });
+    let a10 = TweenMax.to( roleHeading[0], _dur, { css:{ color: '#4867b0' } });
 
-    _timeline.add( [ a1, a2, a3, a4, a5, a6, a7, a8 ] );
+    _timeline.add( [ a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11 ] );
 
     let _skills = role.find('ul').children;
 
@@ -138,7 +143,7 @@ class Scroll extends EventEmitter{
 		var _scene = new ScrollMagic.Scene({
 			triggerElement: element[0],
 			duration: _dur,
-			offset: -60
+			offset: -(window.innerHeight / 20)
 		}).setTween( _timeline )
 			.on('update', update)
 			.on('end', end)
