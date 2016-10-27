@@ -1,5 +1,6 @@
 import { Brush } from './modules/brush.jsx';
 import { Scroll } from './modules/scroll.jsx';
+import { VideoModal } from './modals/video_modal.jsx';
 
 let _ = require('underscore');
 
@@ -22,9 +23,25 @@ class App{
     this.brush = new Brush( _ctx );
     this.raf = null;
 
+    this.videoModal = new VideoModal();
     this.setupScroll();
 
     this.loop();
+    this.setupVideos();
+  }
+
+  setupVideos(){
+    var _videos = $('.poster');
+
+    let fn = (event)=>{
+      //console.log(event.currentTarget);
+      //new VideoModal( src );
+      let src = $( event.currentTarget ).data('src');
+      
+      this.videoModal.open( src );
+    }
+
+    _videos.click( fn );
   }
 
   setupScroll(){

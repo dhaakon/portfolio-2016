@@ -128,7 +128,7 @@
   font-weight: normal;
   font-style: normal; }
 
-.fa, #work .project .arrow, #work .project .poster button i, footer .links a.github, footer .links a.instagram, footer .links a.twitter, #splash .arrow {
+.fa, #work .project .arrow, #work .project .poster button i, footer .links a.github, footer .links a.codepen, footer .links a.instagram, footer .links a.twitter, #splash .arrow {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -187,10 +187,10 @@
 .fa-pull-right {
   float: right; }
 
-.fa.fa-pull-left, #work .project .fa-pull-left.arrow, #work .project .poster button i.fa-pull-left, footer .links a.fa-pull-left.github, footer .links a.fa-pull-left.instagram, footer .links a.fa-pull-left.twitter, #splash .fa-pull-left.arrow {
+.fa.fa-pull-left, #work .project .fa-pull-left.arrow, #work .project .poster button i.fa-pull-left, footer .links a.fa-pull-left.github, footer .links a.fa-pull-left.codepen, footer .links a.fa-pull-left.instagram, footer .links a.fa-pull-left.twitter, #splash .fa-pull-left.arrow {
   margin-right: .3em; }
 
-.fa.fa-pull-right, #work .project .fa-pull-right.arrow, #work .project .poster button i.fa-pull-right, footer .links a.fa-pull-right.github, footer .links a.fa-pull-right.instagram, footer .links a.fa-pull-right.twitter, #splash .fa-pull-right.arrow {
+.fa.fa-pull-right, #work .project .fa-pull-right.arrow, #work .project .poster button i.fa-pull-right, footer .links a.fa-pull-right.github, footer .links a.fa-pull-right.codepen, footer .links a.fa-pull-right.instagram, footer .links a.fa-pull-right.twitter, #splash .fa-pull-right.arrow {
   margin-left: .3em; }
 
 /* Deprecated as of 4.4.0 */
@@ -200,10 +200,10 @@
 .pull-left {
   float: left; }
 
-.fa.pull-left, #work .project .pull-left.arrow, #work .project .poster button i.pull-left, footer .links a.pull-left.github, footer .links a.pull-left.instagram, footer .links a.pull-left.twitter, #splash .pull-left.arrow {
+.fa.pull-left, #work .project .pull-left.arrow, #work .project .poster button i.pull-left, footer .links a.pull-left.github, footer .links a.pull-left.codepen, footer .links a.pull-left.instagram, footer .links a.pull-left.twitter, #splash .pull-left.arrow {
   margin-right: .3em; }
 
-.fa.pull-right, #work .project .pull-right.arrow, #work .project .poster button i.pull-right, footer .links a.pull-right.github, footer .links a.pull-right.instagram, footer .links a.pull-right.twitter, #splash .pull-right.arrow {
+.fa.pull-right, #work .project .pull-right.arrow, #work .project .poster button i.pull-right, footer .links a.pull-right.github, footer .links a.pull-right.codepen, footer .links a.pull-right.instagram, footer .links a.pull-right.twitter, #splash .pull-right.arrow {
   margin-left: .3em; }
 
 .fa-spin {
@@ -1604,7 +1604,7 @@
 .fa-vine:before {
   content: ""; }
 
-.fa-codepen:before {
+.fa-codepen:before, footer .links a.codepen:before {
   content: ""; }
 
 .fa-jsfiddle:before {
@@ -2490,7 +2490,6 @@
   max-width: 1024px;
   margin: 88px auto 0 auto;
   display: inline-block;
-  height: 480px;
   display: block;
   -webkit-transform: translateZ(1px);
   -moz-transform: translateZ(1px);
@@ -2541,7 +2540,7 @@
     float: none;
     width: 100%;
     display: block;
-    height: 240px; } }
+    margin-top: 20px; } }
 
 #work .project .poster iframe {
   width: 100%; }
@@ -2609,11 +2608,28 @@
   text-align: center;
   font-family: "Fjalla One";
   color: #485982;
+  height: 100%;
   height: 300px; }
+
+#contact strike {
+  color: lightGray; }
+
+@media only screen and (max-width: 767px) {
+  #contact {
+    margin-top: 100px;
+    height: auto; } }
+
+#contact a:active {
+  color: #485982; }
 
 #contact a, #contact h1 {
   display: inline-block;
-  font-size: 32px; }
+  font-size: 24px;
+  color: #485982; }
+
+@media only screen and (max-width: 767px) {
+  #contact a, #contact h1 {
+    font-size: 14px; } }
 
 #about {
   text-align: center;
@@ -2622,24 +2638,44 @@
 #about h2, #about h3 {
   margin: 0px; }
 
-.icon-style, footer .links a.github, footer .links a.instagram, footer .links a.twitter {
+.icon-style, footer .links a.github, footer .links a.codepen, footer .links a.instagram, footer .links a.twitter {
   color: black;
   display: block;
-  font-size: 60px; }
+  font-size: 50px; }
+
+@media only screen and (max-width: 767px) {
+  .icon-style, footer .links a.github, footer .links a.codepen, footer .links a.instagram, footer .links a.twitter {
+    font-size: 24px; } }
 
 footer .links {
   width: 400px;
   margin: 0 auto;
-  margin-bottom: 200px; }
+  margin-bottom: 200px;
+  height: 100%; }
+
+@media only screen and (max-width: 767px) {
+  footer .links {
+    width: 200px;
+    margin-bottom: 100px; } }
 
 footer .links a {
-  padding-left: 100px;
+  padding-left: 120px;
   margin-right: 0px;
   width: 40px;
   display: inline-block;
-  color: #485982; }
+  color: #485982;
+  text-decoration: none; }
+
+@media only screen and (max-width: 767px) {
+  footer .links a {
+    padding-left: 40px;
+    margin: 0 auto; } }
 
 footer .links a.github {
+  display: inline-block;
+  color: #485982; }
+
+footer .links a.codepen {
   display: inline-block;
   color: #485982; }
 
@@ -2654,21 +2690,74 @@ footer .links a.twitter {
 footer .links a:first-child {
   padding-left: 0px; }
 
+.modal-container {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  display: none;
+  background: black;
+  position: absolute;
+  z-index: 1000;
+  -webkit-transform: translateZ(100px);
+  -moz-transform: translateZ(100px);
+  -ms-transform: translateZ(100px);
+  -o-transform: translateZ(100px);
+  transform: translateZ(100px); }
+
+.modal-container .close {
+  position: absolute;
+  z-index: 100;
+  -webkit-transform: translateZ(100px);
+  -moz-transform: translateZ(100px);
+  -ms-transform: translateZ(100px);
+  -o-transform: translateZ(100px);
+  transform: translateZ(100px);
+  right: 24px;
+  top: 6px;
+  font-size: 60px;
+  color: white; }
+
+.modal-container .close:before {
+  content: "X";
+  font-family: "Ubuntu Condensed";
+  font-size: 40px; }
+
+@media only screen and (max-width: 767px) {
+  .modal-container .close {
+    font-size: 32px; } }
+
+.modal-container #video-container {
+  width: 100%;
+  height: 100%; }
+
+.modal-container #video-container iframe {
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  border: 0px;
+  max-width: 1024px;
+  max-height: 720px; }
+
+@media only screen and (max-width: 767px) {
+  .modal-container #video-container iframe {
+    max-width: 480px;
+    max-height: 320px; } }
+
 html, body {
   height: 100%; }
 
 body {
   background: white;
-  margin: 0px;
-  -webkit-transition: 1s all;
-  -moz-transition: 1s all;
-  transition: 1s all; }
+  margin: 0px; }
 
 #splash {
   height: 720px;
   text-align: center;
   position: relative;
-  min-width: 1280px;
   max-width: 1440px;
   display: block;
   margin: 0 auto; }

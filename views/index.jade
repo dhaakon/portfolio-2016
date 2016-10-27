@@ -15,7 +15,7 @@ block content
       .project
         .title
           h1 Meus Momentos Gigantes
-        .poster
+        .poster(data-src="https://www.youtube.com/embed/w1ntpqh6piU")
           //-iframe( src="https://www.youtube.com/embed/w1ntpqh6piU")
           button 
             i.play
@@ -42,41 +42,40 @@ block content
               li Google Cloud Platform
               li Docker
               li ECMA 6
-            
-
-
         .arrow
 
       .project.alt
         .title
-          h1 Coke Zero Drinkable Billboard
-        .poster
-          //-iframe( src="https://www.youtube.com/embed/jdvteFAmG_k")
+          h1 Mad Libs
+        .poster(data-src="https://www.youtube.com/embed/KdbGtQ-vVtU")
           button 
             i.play
-          img(src='/img/coke_zero.jpg')
-
+          img(src='/img/madlibs.jpg')
         .specs
           .client
             h2 Client:&nbsp;
-            h2 Ogilvy/Coke 
-          p.description
-            | I led the front-end development for the user experience of the Coke Drinkable Commercial/Billboard. 
-            | During major sporting events users were encouraged to ‘shazam’ a Coke TV spot. They were then sent 
-            | a text message providing a link to redeem a free coke zero coupon.
+            h2 Kettle/Penguin
+          p.description 
+            | The immensely popular word game Mad Lib’s needed a digital reboot. The goal was to create a highly addictive,
+            | scaleable, cross-platform application. All under a very tight deadline. I led the development as well as helped
+            | guide the creative process insuring a successful launch. The game has been downloaded +5 million times and was
+            | featured in the iTunes essential categories. It was also built to implement a smart template system which allowed
+            | for multiple white label versions of the app: WWE, Family Guy, Hello Kitty!, Adventure Time etc…
+            </br>
+            </br>
+            | Fun fact: Apple loved the app so much they tweeted about it upon release.
           .role
             h2 role/skills
             ul
-              li Lead Front-end Developer
-              li Backend Developer
-              li Node
-
+              li Lead Architect
+              li Lead Developer
+              li iOS Development
+              li Titanium
         .arrow
-
       .project
         .title
           h1 McDonald's Burger Showdown
-        .poster
+        .poster(data-src="https://player.vimeo.com/video/173686291")
           button 
             i.play
           img(src='/img/mcdonalds.jpg')
@@ -106,44 +105,37 @@ block content
               li Node
               li Backbone
         .arrow
-
       .project.alt
         .title
-          h1 Mad Libs
-        .poster
+          h1 Coke Zero Drinkable Billboard
+        .poster(data-src="https://www.youtube.com/embed/jdvteFAmG_k")
+          //-iframe( src="https://www.youtube.com/embed/jdvteFAmG_k")
           button 
             i.play
-          img(src='/img/madlibs.jpg')
-
-          //-iframe( src="https://www.youtube.com/embed/KdbGtQ-vVtU")
+          img(src='/img/coke_zero.jpg')
 
         .specs
           .client
             h2 Client:&nbsp;
-            h2 Kettle/Penguin
-          p.description 
-            | The immensely popular word game Mad Lib’s needed a digital reboot. The goal was to create a highly addictive,
-            | scaleable, cross-platform application. All under a very tight deadline. I led the development as well as helped
-            | guide the creative process insuring a successful launch. The game has been downloaded +5 million times and was
-            | featured in the iTunes essential categories. It was also built to implement a smart template system which allowed
-            | for multiple white label versions of the app: WWE, Family Guy, Hello Kitty!, Adventure Time etc…
-            </br>
-            </br>
-            | Fun fact: Apple loved the app so much they tweeted about it upon release.
+            h2 Ogilvy/Coke 
+          p.description
+            | I led the front-end development for the user experience of the Coke Drinkable Commercial/Billboard. 
+            | During major sporting events users were encouraged to ‘shazam’ a Coke TV spot. They were then sent 
+            | a text message providing a link to redeem a free coke zero coupon.
           .role
             h2 role/skills
             ul
-              li Lead Architect
-              li Lead Developer
-              li iOS Development
-              li Titanium
+              li Lead Front-end Developer
+              li Backend Developer
+              li Node
 
         .arrow
+
 
       .project
         .title
           h1 McDonald's Interactive Billboard
-        .poster
+        .poster(data-src="https://player.vimeo.com/video/124232650")
           //-iframe(src="https://player.vimeo.com/video/124232650", frameborder="0", webkitallowfullscreen, mozallowfullscreen, allowfullscreen)
           button 
             i.play
@@ -197,18 +189,15 @@ block content
 
     section#contact
       h1 <strike> Call Me on My Cellphone</strike> Email:&nbsp;&nbsp;&nbsp;
-      a dhaakon@gmail.com
+      a(href="mailto:dhaakon@gmail.com") dhaakon@gmail.com
 
     section#about
 
     footer
       .links
-        a.github
-          //-img(src='/img/github_link.png')
-        a.instagram
-          //-img(src='/img/instagram_link.png')
-        a.twitter
-          //-img(src='/img/twitter_link.png')
+        a.github(href='http://github.com/dhaakon')
+        a.codepen(href='http://codepen.com/dhaakon')
+        a.instagram(href='http://instagram.com/dhaakon')
 
 
 block js_scripts

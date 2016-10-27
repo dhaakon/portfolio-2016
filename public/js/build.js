@@ -1,4 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+
+},{}],2:[function(require,module,exports){
 (function (global){
 /*!
  * VERSION: 1.19.0
@@ -7802,7 +7804,7 @@ if (_gsScope._gsDefine) { _gsScope._gsQueue.pop()(); } //necessary in case Tween
 })((typeof(module) !== "undefined" && module.exports && typeof(global) !== "undefined") ? global : this || window, "TweenMax");
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 /*! iScroll v5.2.0 ~ (c) 2008-2016 Matteo Spinelli ~ http://cubiq.org/license */
 (function (window, document, Math) {
 var rAF = window.requestAnimationFrame	||
@@ -9895,7 +9897,263 @@ if ( typeof module != 'undefined' && module.exports ) {
 
 })(window, document, Math);
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
+(function (global){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.jade = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+'use strict';
+
+/**
+ * Merge two attribute objects giving precedence
+ * to values in object `b`. Classes are special-cased
+ * allowing for arrays and merging/joining appropriately
+ * resulting in a string.
+ *
+ * @param {Object} a
+ * @param {Object} b
+ * @return {Object} a
+ * @api private
+ */
+
+exports.merge = function merge(a, b) {
+  if (arguments.length === 1) {
+    var attrs = a[0];
+    for (var i = 1; i < a.length; i++) {
+      attrs = merge(attrs, a[i]);
+    }
+    return attrs;
+  }
+  var ac = a['class'];
+  var bc = b['class'];
+
+  if (ac || bc) {
+    ac = ac || [];
+    bc = bc || [];
+    if (!Array.isArray(ac)) ac = [ac];
+    if (!Array.isArray(bc)) bc = [bc];
+    a['class'] = ac.concat(bc).filter(nulls);
+  }
+
+  for (var key in b) {
+    if (key != 'class') {
+      a[key] = b[key];
+    }
+  }
+
+  return a;
+};
+
+/**
+ * Filter null `val`s.
+ *
+ * @param {*} val
+ * @return {Boolean}
+ * @api private
+ */
+
+function nulls(val) {
+  return val != null && val !== '';
+}
+
+/**
+ * join array as classes.
+ *
+ * @param {*} val
+ * @return {String}
+ */
+exports.joinClasses = joinClasses;
+function joinClasses(val) {
+  return (Array.isArray(val) ? val.map(joinClasses) :
+    (val && typeof val === 'object') ? Object.keys(val).filter(function (key) { return val[key]; }) :
+    [val]).filter(nulls).join(' ');
+}
+
+/**
+ * Render the given classes.
+ *
+ * @param {Array} classes
+ * @param {Array.<Boolean>} escaped
+ * @return {String}
+ */
+exports.cls = function cls(classes, escaped) {
+  var buf = [];
+  for (var i = 0; i < classes.length; i++) {
+    if (escaped && escaped[i]) {
+      buf.push(exports.escape(joinClasses([classes[i]])));
+    } else {
+      buf.push(joinClasses(classes[i]));
+    }
+  }
+  var text = joinClasses(buf);
+  if (text.length) {
+    return ' class="' + text + '"';
+  } else {
+    return '';
+  }
+};
+
+
+exports.style = function (val) {
+  if (val && typeof val === 'object') {
+    return Object.keys(val).map(function (style) {
+      return style + ':' + val[style];
+    }).join(';');
+  } else {
+    return val;
+  }
+};
+/**
+ * Render the given attribute.
+ *
+ * @param {String} key
+ * @param {String} val
+ * @param {Boolean} escaped
+ * @param {Boolean} terse
+ * @return {String}
+ */
+exports.attr = function attr(key, val, escaped, terse) {
+  if (key === 'style') {
+    val = exports.style(val);
+  }
+  if ('boolean' == typeof val || null == val) {
+    if (val) {
+      return ' ' + (terse ? key : key + '="' + key + '"');
+    } else {
+      return '';
+    }
+  } else if (0 == key.indexOf('data') && 'string' != typeof val) {
+    if (JSON.stringify(val).indexOf('&') !== -1) {
+      console.warn('Since Jade 2.0.0, ampersands (`&`) in data attributes ' +
+                   'will be escaped to `&amp;`');
+    };
+    if (val && typeof val.toISOString === 'function') {
+      console.warn('Jade will eliminate the double quotes around dates in ' +
+                   'ISO form after 2.0.0');
+    }
+    return ' ' + key + "='" + JSON.stringify(val).replace(/'/g, '&apos;') + "'";
+  } else if (escaped) {
+    if (val && typeof val.toISOString === 'function') {
+      console.warn('Jade will stringify dates in ISO form after 2.0.0');
+    }
+    return ' ' + key + '="' + exports.escape(val) + '"';
+  } else {
+    if (val && typeof val.toISOString === 'function') {
+      console.warn('Jade will stringify dates in ISO form after 2.0.0');
+    }
+    return ' ' + key + '="' + val + '"';
+  }
+};
+
+/**
+ * Render the given attributes object.
+ *
+ * @param {Object} obj
+ * @param {Object} escaped
+ * @return {String}
+ */
+exports.attrs = function attrs(obj, terse){
+  var buf = [];
+
+  var keys = Object.keys(obj);
+
+  if (keys.length) {
+    for (var i = 0; i < keys.length; ++i) {
+      var key = keys[i]
+        , val = obj[key];
+
+      if ('class' == key) {
+        if (val = joinClasses(val)) {
+          buf.push(' ' + key + '="' + val + '"');
+        }
+      } else {
+        buf.push(exports.attr(key, val, false, terse));
+      }
+    }
+  }
+
+  return buf.join('');
+};
+
+/**
+ * Escape the given string of `html`.
+ *
+ * @param {String} html
+ * @return {String}
+ * @api private
+ */
+
+var jade_encode_html_rules = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;'
+};
+var jade_match_html = /[&<>"]/g;
+
+function jade_encode_char(c) {
+  return jade_encode_html_rules[c] || c;
+}
+
+exports.escape = jade_escape;
+function jade_escape(html){
+  var result = String(html).replace(jade_match_html, jade_encode_char);
+  if (result === '' + html) return html;
+  else return result;
+};
+
+/**
+ * Re-throw the given `err` in context to the
+ * the jade in `filename` at the given `lineno`.
+ *
+ * @param {Error} err
+ * @param {String} filename
+ * @param {String} lineno
+ * @api private
+ */
+
+exports.rethrow = function rethrow(err, filename, lineno, str){
+  if (!(err instanceof Error)) throw err;
+  if ((typeof window != 'undefined' || !filename) && !str) {
+    err.message += ' on line ' + lineno;
+    throw err;
+  }
+  try {
+    str = str || require('fs').readFileSync(filename, 'utf8')
+  } catch (ex) {
+    rethrow(err, null, lineno)
+  }
+  var context = 3
+    , lines = str.split('\n')
+    , start = Math.max(lineno - context, 0)
+    , end = Math.min(lines.length, lineno + context);
+
+  // Error context
+  var context = lines.slice(start, end).map(function(line, i){
+    var curr = i + start + 1;
+    return (curr == lineno ? '  > ' : '    ')
+      + curr
+      + '| '
+      + line;
+  }).join('\n');
+
+  // Alter exception message
+  err.path = filename;
+  err.message = (filename || 'Jade') + ':' + lineno
+    + '\n' + context + '\n\n' + err.message;
+  throw err;
+};
+
+exports.DebugItem = function DebugItem(lineno, filename) {
+  this.lineno = lineno;
+  this.filename = filename;
+}
+
+},{"fs":2}],2:[function(require,module,exports){
+
+},{}]},{},[1])(1)
+});
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+
+},{"fs":1}],5:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.1.1
  * https://jquery.com/
@@ -20117,7 +20375,7 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],4:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 /*!
  * ScrollMagic v2.0.5 (2015-04-29)
  * The javascript library for magical scroll interactions.
@@ -22898,7 +23156,7 @@ return jQuery;
 
 	return ScrollMagic;
 }));
-},{}],5:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /*!
  * ScrollMagic v2.0.5 (2015-04-29)
  * The javascript library for magical scroll interactions.
@@ -23209,7 +23467,7 @@ return jQuery;
 
 	});
 }));
-},{"gsap":1,"scrollmagic":4}],6:[function(require,module,exports){
+},{"gsap":2,"scrollmagic":6}],8:[function(require,module,exports){
 /*!
  * ScrollMagic v2.0.5 (2015-04-29)
  * The javascript library for magical scroll interactions.
@@ -23882,7 +24140,7 @@ return jQuery;
 	};
 
 }));
-},{"scrollmagic":4}],7:[function(require,module,exports){
+},{"scrollmagic":6}],9:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -25432,7 +25690,7 @@ return jQuery;
   }
 }.call(this));
 
-},{}],8:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 /*!
  * EventEmitter v5.1.0 - git.io/ee
  * Unlicense - http://unlicense.org/
@@ -25920,7 +26178,7 @@ return jQuery;
     }
 }(this || {}));
 
-},{}],9:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -25941,6 +26199,8 @@ var _createClass = function () {
 var _brush = require('./modules/brush.jsx');
 
 var _scroll = require('./modules/scroll.jsx');
+
+var _video_modal = require('./modals/video_modal.jsx');
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -25971,15 +26231,34 @@ var App = function () {
     this.brush = new _brush.Brush(_ctx);
     this.raf = null;
 
+    this.videoModal = new _video_modal.VideoModal();
     this.setupScroll();
 
     this.loop();
+    this.setupVideos();
   }
 
   _createClass(App, [{
+    key: 'setupVideos',
+    value: function setupVideos() {
+      var _this = this;
+
+      var _videos = $('.poster');
+
+      var fn = function fn(event) {
+        //console.log(event.currentTarget);
+        //new VideoModal( src );
+        var src = $(event.currentTarget).data('src');
+
+        _this.videoModal.open(src);
+      };
+
+      _videos.click(fn);
+    }
+  }, {
     key: 'setupScroll',
     value: function setupScroll() {
-      var _this = this;
+      var _this2 = this;
 
       this.scroll = new _scroll.Scroll();
       this.scroll.addListener('bg_change', function (e) {
@@ -25987,13 +26266,13 @@ var App = function () {
       });
       this.scroll.addListener('splash_over', function (e) {
         $('.sketchpad').css({ 'transitionDelay': '0ms' });
-        cancelAnimationFrame(_this.raf);
+        cancelAnimationFrame(_this2.raf);
         //console.log(e);
       });
 
       this.scroll.addListener('splash_start', function (e) {
         $('.sketchpad').css({ 'transitionDelay': '500ms' });
-        _this.loop();
+        _this2.loop();
         //console.log(e);
       });
 
@@ -26003,7 +26282,7 @@ var App = function () {
         //console.log(idx);
 
         //console.log('adding scene');
-        _this.scroll.addScene($(el));
+        _this2.scroll.addScene($(el));
       };
 
       _.each(elToScroll, iter);
@@ -26039,7 +26318,143 @@ new App();
 
 exports.App = App;
 
-},{"./modules/brush.jsx":11,"./modules/scroll.jsx":13,"jquery":3,"underscore":7}],10:[function(require,module,exports){
+},{"./modals/video_modal.jsx":12,"./modules/brush.jsx":14,"./modules/scroll.jsx":16,"jquery":5,"underscore":9}],12:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.VideoModal = undefined;
+
+var _createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+  };
+}();
+
+var _gsap = require('gsap');
+
+var _gsap2 = _interopRequireDefault(_gsap);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return call && (typeof call === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var EventEmitter = require('wolfy87-eventemitter');
+var template = require('../templates/video_modal.jade');
+
+var $ = require('jquery');
+
+var VideoModal = function (_EventEmitter) {
+  _inherits(VideoModal, _EventEmitter);
+
+  function VideoModal() {
+    _classCallCheck(this, VideoModal);
+
+    var _this = _possibleConstructorReturn(this, (VideoModal.__proto__ || Object.getPrototypeOf(VideoModal)).call(this));
+
+    _this.setup();
+    _this.onresize();
+    _this.onscroll();
+    $(window).on('resize', _this.onresize.bind(_this));
+    $(window).on('scroll', _this.onscroll.bind(_this));
+    return _this;
+  }
+
+  _createClass(VideoModal, [{
+    key: 'onresize',
+    value: function onresize() {
+      this.container.css('width', window.innerWidth);
+      this.container.css('height', window.innerHeight);
+    }
+  }, {
+    key: 'onscroll',
+    value: function onscroll() {
+      this.container.css('top', $(window).scrollTop());
+    }
+  }, {
+    key: 'setup',
+    value: function setup() {}
+  }, {
+    key: 'close',
+    value: function close() {
+      console.log('closing');
+      this.animateOut();
+    }
+  }, {
+    key: 'open',
+    value: function open(src) {
+      console.log('opening ' + src);
+      console.log(this.container);
+      this.src = src;
+
+      this.animateIn();
+    }
+  }, {
+    key: 'animateIn',
+    value: function animateIn() {
+      this.container.css('display', 'block');
+      this.container.css('pointerEvents', 'all');
+      TweenMax.to(this.container[0], 0.2, { css: { opacity: 1 } });
+
+      this.element = $(template({ src: this.src }));
+
+      this.container.append(this.element);
+      this.closeElement = this.container.find('.close');
+      this.frame = this.element.find('iframe');
+
+      //this.frame.attr('src', this.src );
+      console.log(this.closeElement);
+
+      this.closeElement.on('click', this.close.bind(this));
+    }
+  }, {
+    key: 'closeComplete',
+    value: function closeComplete() {
+      console.log('close complete');
+      this.container.css('pointerEvents', 'none');
+      this.container.empty();
+    }
+  }, {
+    key: 'animateOut',
+    value: function animateOut() {
+      TweenMax.to(this.container[0], 0.2, { css: { opacity: 0 }, onComplete: this.closeComplete.bind(this) });
+    }
+  }]);
+
+  return VideoModal;
+}(EventEmitter);
+
+var proto = VideoModal.prototype;
+
+proto.container = $('.modal-container');
+proto.closeElement = null;
+
+exports.VideoModal = VideoModal;
+
+},{"../templates/video_modal.jade":17,"gsap":2,"jquery":5,"wolfy87-eventemitter":10}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -26161,7 +26576,7 @@ proto.drawing = false;
 
 exports.Bristle = Bristle;
 
-},{"./helpers.jsx":12}],11:[function(require,module,exports){
+},{"./helpers.jsx":15}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -26291,7 +26706,7 @@ proto.radius = 5;
 
 exports.Brush = Brush;
 
-},{"./bristle.jsx":10,"./helpers.jsx":12}],12:[function(require,module,exports){
+},{"./bristle.jsx":13,"./helpers.jsx":15}],15:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -26309,7 +26724,7 @@ var rand = function rand(numA, numB) {
 
 exports.rand = rand;
 
-},{}],13:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -26518,7 +26933,17 @@ var Scroll = function (_EventEmitter) {
 
 exports.Scroll = Scroll;
 
-},{"gsap":1,"iscroll":2,"jquery":3,"scrollmagic":4,"scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap":5,"scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators":6,"underscore":7,"wolfy87-eventemitter":8}]},{},[9])
+},{"gsap":2,"iscroll":3,"jquery":5,"scrollmagic":6,"scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap":7,"scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators":8,"underscore":9,"wolfy87-eventemitter":10}],17:[function(require,module,exports){
+var jade = require("jade/runtime");
+
+module.exports = function template(locals) {
+var buf = [];
+var jade_mixins = {};
+var jade_interp;
+;var locals_for_with = (locals || {});(function (src) {
+buf.push("<div class=\"close\"></div><div id=\"video-container\"><div id=\"video-main\"><iframe id=\"videoWindow\"" + (jade.attr("src", "" + (src) + "", true, false)) + "></iframe></div></div>");}.call(this,"src" in locals_for_with?locals_for_with.src:typeof src!=="undefined"?src:undefined));;return buf.join("");
+};
+},{"jade/runtime":4}]},{},[11])
 
 
 //# sourceMappingURL=build.js.map

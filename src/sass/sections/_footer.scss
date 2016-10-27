@@ -1,9 +1,14 @@
-$f_padd: 100px;
+$f_padd: 120px;
 
 .icon-style{
   color: black;
   display: block;
-  font-size: 60px;
+  font-size: 50px;
+
+  @include viewport(sm){
+    font-size: 24px;
+  }
+
 }
 
 footer{
@@ -11,6 +16,14 @@ footer{
     width: 400px;
     margin: 0 auto;
     margin-bottom: 200px;
+    height: 100%;
+
+    @include viewport(sm){
+      width: 200px;
+      margin-bottom: 100px;
+      //height: 200px;
+    }
+
 
     a{
       padding-left: $f_padd;
@@ -19,6 +32,13 @@ footer{
       width: 40px;
       display: inline-block;
       color: $blue;
+      text-decoration: none;
+
+      @include viewport(sm){
+        padding-left: 40px;
+        margin: 0 auto;
+      }
+
       
       &.github{
         @extend .icon-style;
@@ -27,7 +47,13 @@ footer{
         display: inline-block;
         color: $blue;
       }
-
+      &.codepen{
+        @extend .icon-style;
+        @extend .fa-codepen;
+        @extend .fa;
+        display: inline-block;
+        color: $blue;
+      }
       &.instagram{
         @extend .icon-style;
         @extend .fa-instagram;
