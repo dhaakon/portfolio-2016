@@ -3,16 +3,17 @@
   .close{
     &:before{
       content: "X";
-      font-family: "Ubuntu Condensed";
+      font-family: "Helvetica";
       font-size: 40px;
     }
 
     position: absolute;
     z-index: 100;
     @include transform( translateZ( 100px ) );
-    right: 24px;
+    right: 28px;
     top: 6px;
     font-size: 60px;
+    cursor: pointer;
     color: white;
 
     @include viewport( sm ){ font-size: 32px; }

@@ -69,6 +69,17 @@ body{
   }
 }
 
+#name{
+  h1{
+    position: absolute;
+    z-index: 100;
+    @include horizontal-align;
+    bottom: -30px;
+    letter-spacing: 2px;
+    font-family: "Source Sans Pro";
+    font-size: 12px;
+  }
+}
 
 .sketchpad{
   //width: 1000px;

@@ -2326,6 +2326,7 @@
   -ms-transform: translateZ(1px);
   -o-transform: translateZ(1px);
   transform: translateZ(1px);
+  overflow: hidden;
   margin-top: 350px;
   color: #e6e6e6;
   max-width: 1440px;
@@ -2336,6 +2337,16 @@
   #work {
     max-width: 480px;
     min-width: 320px; } }
+
+#work .vignette {
+  background-image: url(radial-gradient(#1e5799, #3dc3d1));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #fff;
+  display: block;
+  width: 100%;
+  height: 100%; }
 
 #work h2 {
   font-family: "Fjalla One"; }
@@ -2413,6 +2424,12 @@
   #work .project .description {
     font-size: 12px;
     line-height: 14px; } }
+
+#work .project .description a {
+  font-weight: bold; }
+
+#work .project .description a:visited {
+  color: inherit; }
 
 #work .project h1 {
   margin: 0px;
@@ -2712,14 +2729,15 @@ footer .links a:first-child {
   -ms-transform: translateZ(100px);
   -o-transform: translateZ(100px);
   transform: translateZ(100px);
-  right: 24px;
+  right: 28px;
   top: 6px;
   font-size: 60px;
+  cursor: pointer;
   color: white; }
 
 .modal-container .close:before {
   content: "X";
-  font-family: "Ubuntu Condensed";
+  font-family: "Helvetica";
   font-size: 40px; }
 
 @media only screen and (max-width: 767px) {
@@ -2794,6 +2812,18 @@ body {
   transform: translateX(-50%);
   bottom: -80px;
   font-size: 25px; }
+
+#name h1 {
+  position: absolute;
+  z-index: 100;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  bottom: -30px;
+  letter-spacing: 2px;
+  font-family: "Source Sans Pro";
+  font-size: 12px; }
 
 .sketchpad {
   background: white;

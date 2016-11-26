@@ -15,6 +15,7 @@ let endtime = 100000;
 var count = 0;
 
 var dt = 0;
+let $win = $(window);
 
 class App{
   constructor(){
@@ -24,10 +25,26 @@ class App{
     this.raf = null;
 
     this.videoModal = new VideoModal();
+    this.resizeHandler();
     this.setupScroll();
 
     this.loop();
     this.setupVideos();
+
+    this.setupListeners();
+  }
+
+  setupListeners(){
+
+    $(window).on('resize', this.resizeHandler.bind(this) );
+  }
+
+  resizeHandler(){
+      let _width = $win.width();
+
+      if( _width < 1024 ){
+        this.isDeviceMode = true;
+      }
   }
 
   setupVideos(){
@@ -45,7 +62,7 @@ class App{
   }
 
   setupScroll(){
-    this.scroll = new Scroll();
+    this.scroll = new Scroll( this.isDeviceMode );
     this.scroll.addListener('bg_change', (e)=>{
       //console.log(e);
     });

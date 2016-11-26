@@ -10,6 +10,9 @@ block content
       img(src='./img/logo_large.png')
       .arrow
 
+    section#name
+      h1 creative technologist
+
     section#work
       h1#music-title <span class='music'>&#x266C <b>&#x266A</b> &#x266C <b>&#x266A</b></span> work work work work work work work <span class='music'>&#x266C <b>&#x266A</b> &#x266C <b>&#x266A</b></span>
       .project
@@ -20,19 +23,20 @@ block content
           button 
             i.play
           img(src='/img/meusmomentos.jpg')
+          .vignette
         .specs
           .client
             h2 Client:&nbsp;
             h2 Claro/Google
           p.description 
             | Claro South America was looking for a way to connect with customers throughout the Rio Olympics. 
-            | I led the development of a custom social media platform which integrated multiple social media 
+            | I led the development of a custom time-sensitive gallery which integrated multiple social media 
             | accounts and matched user photos with olympic moments.A custom backend was built which processed the 
             | photos through a nudity filter before being available for real-time moderation.
             </br>
             </br>
             | At the end of the olympics users were invited to create a dynamic video which used their timeline 
-            | photos. A custom video with the user’s photos could be then uploaded to youtube.
+            | photos. <a href="https://www.youtube.com/watch?v=LwIgdIFYLZw">A custom video with the user’s photos could be then uploaded to youtube.</a>
           .role
             h2 role/skills
             ul
@@ -42,6 +46,7 @@ block content
               li Google Cloud Platform
               li Docker
               li ECMA 6
+              li ffmpeg
         .arrow
 
       .project.alt
@@ -51,6 +56,8 @@ block content
           button 
             i.play
           img(src='/img/madlibs.jpg')
+          .vignette
+
         .specs
           .client
             h2 Client:&nbsp;
@@ -58,12 +65,12 @@ block content
           p.description 
             | The immensely popular word game Mad Lib’s needed a digital reboot. The goal was to create a highly addictive,
             | scaleable, cross-platform application. All under a very tight deadline. I led the development as well as helped
-            | guide the creative process insuring a successful launch. The game has been downloaded +5 million times and was
+            | guide the creative process insuring a successful launch. The game has been downloaded +2 million times and was
             | featured in the iTunes essential categories. It was also built to implement a smart template system which allowed
             | for multiple white label versions of the app: WWE, Family Guy, Hello Kitty!, Adventure Time etc…
             </br>
             </br>
-            | Fun fact: Apple loved the app so much they tweeted about it upon release.
+            | <a target="_blank" href="https://twitter.com/AppStore/status/532742651528085504">Apple loved the app so much they tweeted about it upon release.</a> NBD.
           .role
             h2 role/skills
             ul
@@ -71,6 +78,7 @@ block content
               li Lead Developer
               li iOS Development
               li Titanium
+              li Backbone
         .arrow
       .project
         .title
@@ -79,6 +87,7 @@ block content
           button 
             i.play
           img(src='/img/mcdonalds.jpg')
+          .vignette
 
           //-iframe(src="https://player.vimeo.com/video/173686291", frameborder="0", webkitallowfullscreen, mozallowfullscreen, allowfullscreen)
 
@@ -88,14 +97,15 @@ block content
             h2 Client:&nbsp;
             h2 Cossette/McDonalds
           p.description
-            | I built a burger building platform for McDonald’s Chicago. This was all custom software built with
-            | PIXI.js as the rendering engine. Burgers were eventually voted upon through the app and selected to
-            | be on the menu in Chicago.
+            | I built a burger building platform for McDonald’s Chicago. This was all custom software built using 
+            | PIXI.js as the rendering engine. There were two phases to this campaign, burger building and voting.
+            | Each phase required a custom frontend and backend.
             </br>
             </br>
-            | Fun fact: The campaign and platform was reused in multiple markets. In New Zealand, someone forgot 
+            | The campaign and platform was reused in multiple markets.
+            | <a target="_blank" href="http://qz.com/738361/mcdonalds-created-a-build-your-own-burger-website-and-the-internet-used-it-to-make-racist-burgers/"> In New Zealand, someone forgot 
             | to update and use the profanity filter we implemented. This resulted in bad press and a virile article 
-            | about inappropriate burger names.
+            | about inappropriate burger names.</a> Remember kids, always use a profanity filter.x
           .role
             h2 role/skills
             ul
@@ -113,6 +123,8 @@ block content
           button 
             i.play
           img(src='/img/coke_zero.jpg')
+          .vignette
+
 
         .specs
           .client
@@ -122,6 +134,9 @@ block content
             | I led the front-end development for the user experience of the Coke Drinkable Commercial/Billboard. 
             | During major sporting events users were encouraged to ‘shazam’ a Coke TV spot. They were then sent 
             | a text message providing a link to redeem a free coke zero coupon.
+            <br>
+            <br>
+            | You can read more about the project in <a target="_blank" href="http://www.adweek.com/agencyspy/ogilvy-creates-drinkable-billboard-commercial-for-coke-zero/83855">adweek</a>.
           .role
             h2 role/skills
             ul
@@ -140,6 +155,7 @@ block content
           button 
             i.play
           img(src='/img/mcdonalds-billboard.jpg')
+          .vignette
 
 
 
@@ -148,7 +164,7 @@ block content
             h2 Client:&nbsp;
             h2 Bossa/McDonalds
           p.description
-            | A one time experience which ran days before Christmas and was located in Picadilly Circus. A floating Christmas 
+            | A one time experience which ran days before Christmas and was located in Piccadilly Circus. A floating Christmas 
             | cracker was displayed on a prominent billboard. Users were then encouraged to connect to the billboard via their
             | smartphone. Once two people connected the first person to swipe would receive a prize.
 
@@ -168,6 +184,7 @@ block content
         .poster
           a(href='/old-portfolio')
             img(src='/img/portfolio-image.jpg')
+            .vignette
 
         .specs
           .client
@@ -195,9 +212,9 @@ block content
 
     footer
       .links
-        a.github(href='http://github.com/dhaakon')
-        a.codepen(href='http://codepen.com/dhaakon')
-        a.instagram(href='http://instagram.com/dhaakon')
+        a.github( target="_blank", href='http://github.com/dhaakon')
+        a.codepen(  target="_blank", href='http://codepen.com/dhaakon')
+        a.instagram(  target="_blank", href='http://instagram.com/dhaakon')
 
 
 block js_scripts

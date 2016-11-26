@@ -26221,6 +26221,7 @@ var endtime = 100000;
 var count = 0;
 
 var dt = 0;
+var $win = $(window);
 
 var App = function () {
   function App() {
@@ -26232,13 +26233,31 @@ var App = function () {
     this.raf = null;
 
     this.videoModal = new _video_modal.VideoModal();
+    this.resizeHandler();
     this.setupScroll();
 
     this.loop();
     this.setupVideos();
+
+    this.setupListeners();
   }
 
   _createClass(App, [{
+    key: 'setupListeners',
+    value: function setupListeners() {
+
+      $(window).on('resize', this.resizeHandler.bind(this));
+    }
+  }, {
+    key: 'resizeHandler',
+    value: function resizeHandler() {
+      var _width = $win.width();
+
+      if (_width < 1024) {
+        this.isDeviceMode = true;
+      }
+    }
+  }, {
     key: 'setupVideos',
     value: function setupVideos() {
       var _this = this;
@@ -26260,7 +26279,7 @@ var App = function () {
     value: function setupScroll() {
       var _this2 = this;
 
-      this.scroll = new _scroll.Scroll();
+      this.scroll = new _scroll.Scroll(this.isDeviceMode);
       this.scroll.addListener('bg_change', function (e) {
         //console.log(e);
       });
@@ -26784,9 +26803,15 @@ var Scroll = function (_EventEmitter) {
   _inherits(Scroll, _EventEmitter);
 
   function Scroll() {
+    var isDevice = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
     _classCallCheck(this, Scroll);
 
     var _this = _possibleConstructorReturn(this, (Scroll.__proto__ || Object.getPrototypeOf(Scroll)).call(this));
+
+    _this.mode = isDevice;
+
+    console.log('Device mode = ' + _this.mode);
 
     _this._c = 0;
     _this._colors = ['rgb(230,210,220)', 'rgb(250,200,160)', 'rgb( 180, 240, 220)', 'rgb(240,230,200)', 'rgb(230,160,150)', 'rgb( 220, 250, 230)'];
@@ -26808,20 +26833,30 @@ var Scroll = function (_EventEmitter) {
       var _this2 = this;
 
       var musicTitle = $('#music-title');
+      var nameTitle = $('#name h1');
       var _timeline = new TimelineMax();
+      var _nameTimeline = new TimelineMax();
       var _dur = 100;
 
       var a1 = TweenMax.from(musicTitle[0], _dur, { css: { opacity: 0, y: -20 } });
+      var a2 = TweenMax.from(nameTitle[0], 200, { css: { opacity: 0, y: -40 } });
 
       var update = function update() {};
 
       _timeline.add([a1]);
+      _nameTimeline.add([a2]);
 
       var _scene = new ScrollMagic.Scene({
         triggerElement: musicTitle[0],
         duration: _dur,
         offset: 0
       }).setTween(_timeline).on('update', update).addTo(this.controller);
+
+      var _nameScene = new ScrollMagic.Scene({
+        triggerElement: nameTitle[0],
+        duration: _dur,
+        offset: 0
+      }).setTween(_nameTimeline).addTo(this.controller);
 
       var _sketchPad = $('.sketchpad');
       var arrow = $('#splash .arrow');
@@ -26877,17 +26912,20 @@ var Scroll = function (_EventEmitter) {
       var _sway = 80;
       var _altPush = element.hasClass('alt') ? -_sway : _sway;
 
-      var a1 = TweenMax.from(description[0], _dur, { css: { opacity: 1, y: 100, z: 1 } });
+      var posterOptions = this.mode ? { css: { opacity: 0, y: 20, z: 1 } } : { css: { opacity: 0, y: 20, x: _altPush, z: 1 } };
+
+      var a1 = TweenMax.from(description[0], _dur, { css: { opacity: 1, color: 'lightGray', y: 100, z: 1 } });
       var a2 = TweenMax.from(client[0], _dur, { css: { opacity: 1, y: -50, z: 1 } });
       var a3 = TweenMax.from(role[0], _dur + 40, { css: { opacity: 1, y: 140, z: 1 }, delay: 0.3 });
       var a4 = TweenMax.from(roleHeading[0], _dur + 40, { css: { opacity: 1, y: -50, z: 1 }, delay: 0.3 });
-      var a5 = TweenMax.from(poster[0], _dur - 200, { css: { opacity: 0, y: 20, x: _altPush, z: 1 } });
+      var a5 = TweenMax.from(poster[0], _dur - 200, posterOptions);
       var a6 = TweenMax.from(title[0], _dur, { css: { opacity: 1, y: -50, z: 1, textShadow: ' 0px 10px 0px lightGray' } });
       var a11 = TweenMax.from(arrow[0], _dur, { css: { opacity: -3, y: 150, z: 1 } });
       var a7 = TweenMax.to(arrow[0], _dur, { css: { color: '#485982' } });
       var a8 = TweenMax.from(element[0], _dur, { css: { color: 'lightGray', z: 1 } });
       var a9 = TweenMax.to(clientTitle[0], _dur, { css: { color: '#4867b0' } });
       var a10 = TweenMax.to(roleHeading[0], _dur, { css: { color: '#4867b0' } });
+      //let a12 = TweenMax.from( roleHeading[0], _dur, { css:{ color: 'lightGray' } });
 
       _timeline.add([a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11]);
 
